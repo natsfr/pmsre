@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 08/08/2013 14:13:25
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 05/12/2014 17:33:56
 
 BeginCmp
 TimeStamp = /5181BE69;
@@ -351,23 +351,9 @@ IdModule  = PIN_ARRAY_4x1;
 EndCmp
 
 BeginCmp
-TimeStamp = /51E92737/51F929D5;
-Reference = P202;
-ValeurCmp = CAN_Conn;
-IdModule  = PIN_ARRAY_2X1;
-EndCmp
-
-BeginCmp
 TimeStamp = /51E92737/51FBC1A4;
 Reference = P203;
 ValeurCmp = PWM_OUT;
-IdModule  = PIN_ARRAY_4x1;
-EndCmp
-
-BeginCmp
-TimeStamp = /51E92737/52038989;
-Reference = P204;
-ValeurCmp = CONN_4;
 IdModule  = PIN_ARRAY_4x1;
 EndCmp
 
@@ -561,20 +547,6 @@ IdModule  = SM0603;
 EndCmp
 
 BeginCmp
-TimeStamp = /51E92737/51F9284B;
-Reference = R208;
-ValeurCmp = 0;
-IdModule  = SM0603;
-EndCmp
-
-BeginCmp
-TimeStamp = /51E92737/51F91780;
-Reference = R209;
-ValeurCmp = 120;
-IdModule  = SM0805;
-EndCmp
-
-BeginCmp
 TimeStamp = /51E92737/51FBE1E9;
 Reference = R210;
 ValeurCmp = ?;
@@ -645,6 +617,13 @@ IdModule  = SM0603;
 EndCmp
 
 BeginCmp
+TimeStamp = /51E92737/5481EB29;
+Reference = U1;
+ValeurCmp = XC3S200A;
+IdModule  = TQFP_100;
+EndCmp
+
+BeginCmp
 TimeStamp = /5181BF06;
 Reference = U102;
 ValeurCmp = DRV8825;
@@ -663,13 +642,6 @@ TimeStamp = /5181BABF;
 Reference = U104;
 ValeurCmp = DRV8825;
 IdModule  = HTSSOP28_PowerPad;
-EndCmp
-
-BeginCmp
-TimeStamp = /51E92737/51F92624;
-Reference = U201;
-ValeurCmp = SN65HVD233;
-IdModule  = SO8E;
 EndCmp
 
 BeginCmp

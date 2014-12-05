@@ -38,14 +38,14 @@ LIBS:reworked
 LIBS:connectors
 LIBS:misc_ic
 LIBS:STM32F103RG_LQFP64
-LIBS:stepper_controller-cache
+LIBS:xc3s200a
 EELAYER 27 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 3
 Title ""
-Date "17 nov 2014"
+Date "5 dec 2014"
 Rev ""
 Comp ""
 Comment1 ""

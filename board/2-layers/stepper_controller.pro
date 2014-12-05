@@ -1,4 +1,4 @@
-update=Tue 25 Nov 2014 09:11:43 AM CET
+update=05/12/2014 14:04:22
 version=1
 last_client=eeschema
 [pcbnew]
@@ -48,7 +48,7 @@ NetIExt=net
 EquName1=devcms
 [eeschema]
 version=1
-LibDir=../../../nats-useless-stuff.technic/Kicad-Parts/sch;../components/XC3S200A
+LibDir=../components/XC3S200A;../../../nus/Kicad-Parts/sch
 NetFmtName=PcbnewAdvanced
 RptD_X=0
 RptD_Y=100
