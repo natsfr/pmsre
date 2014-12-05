@@ -1,4 +1,4 @@
-update=Thu 13 Nov 2014 10:10:39 AM CET
+update=Tue 25 Nov 2014 09:11:43 AM CET
 version=1
 last_client=eeschema
 [pcbnew]
@@ -48,7 +48,7 @@ NetIExt=net
 EquName1=devcms
 [eeschema]
 version=1
-LibDir=../../../nats-useless-stuff.technic/Kicad-Parts/sch
+LibDir=../../../nats-useless-stuff.technic/Kicad-Parts/sch;../components/XC3S200A
 NetFmtName=PcbnewAdvanced
 RptD_X=0
 RptD_Y=100
@@ -94,3 +94,4 @@ LibName36=reworked
 LibName37=connectors
 LibName38=misc_ic
 LibName39=STM32F103RG_LQFP64
+LibName40=xc3s200a
