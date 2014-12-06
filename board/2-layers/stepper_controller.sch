@@ -43,9 +43,9 @@ EELAYER 27 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 3
+Sheet 1 4
 Title ""
-Date "5 dec 2014"
+Date "6 dec 2014"
 Rev ""
 Comp ""
 Comment1 ""
@@ -1612,4 +1612,67 @@ Text Label 9875 1775 0    25   ~ 0
 SEN_A_0
 Text Label 9875 1825 0    25   ~ 0
 SEN_B_0
+$Sheet
+S 600  3500 1100 650 
+U 54825C52
+F0 "FPGA" 50
+F1 "fpga.sch" 50
+$EndSheet
+$Comp
+L CONN_6 P?
+U 1 1 54827047
+P 5000 7300
+F 0 "P?" V 4950 7300 60  0000 C CNN
+F 1 "JTAG" V 5050 7300 60  0000 C CNN
+F 2 "" H 5000 7300 60  0001 C CNN
+F 3 "" H 5000 7300 60  0001 C CNN
+	1    5000 7300
+	-1   0    0    1   
+$EndComp
+$Comp
+L +3,3V #PWR?
+U 1 1 5482704D
+P 5400 7000
+F 0 "#PWR?" H 5400 6960 30  0001 C CNN
+F 1 "+3,3V" H 5400 7110 30  0000 C CNN
+F 2 "" H 5400 7000 60  0001 C CNN
+F 3 "" H 5400 7000 60  0001 C CNN
+	1    5400 7000
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 54827053
+P 5400 7600
+F 0 "#PWR?" H 5400 7600 30  0001 C CNN
+F 1 "GND" H 5400 7530 30  0001 C CNN
+F 2 "" H 5400 7600 60  0001 C CNN
+F 3 "" H 5400 7600 60  0001 C CNN
+	1    5400 7600
+	1    0    0    -1  
+$EndComp
+Text GLabel 5450 7150 2    25   Output ~ 0
+FPGA_TMS
+Text GLabel 5450 7250 2    25   Output ~ 0
+FPGA_TCK
+Text GLabel 5450 7350 2    25   Output ~ 0
+FPGA_TDI
+Text GLabel 5450 7450 2    25   Input ~ 0
+FPGA_TDO
+Wire Wire Line
+	5400 7000 5400 7050
+Wire Wire Line
+	5400 7050 5350 7050
+Wire Wire Line
+	5350 7550 5400 7550
+Wire Wire Line
+	5400 7550 5400 7600
+Wire Wire Line
+	5350 7450 5450 7450
+Wire Wire Line
+	5350 7350 5450 7350
+Wire Wire Line
+	5350 7250 5450 7250
+Wire Wire Line
+	5350 7150 5450 7150
 $EndSCHEMATC

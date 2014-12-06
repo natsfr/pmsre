@@ -43,9 +43,9 @@ EELAYER 27 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 3
+Sheet 2 4
 Title ""
-Date "5 dec 2014"
+Date "6 dec 2014"
 Rev ""
 Comp ""
 Comment1 ""
@@ -154,10 +154,6 @@ Wire Wire Line
 	8700 1500 9150 1500
 Wire Wire Line
 	6500 4000 6400 4000
-Text GLabel 5550 3300 1    25   Output ~ 0
-CAN_TX
-Text GLabel 5600 3300 1    25   Input ~ 0
-CAN_RX
 Text GLabel 5750 5100 3    25   Input ~ 0
 INT_SPI_MOSI
 Text GLabel 5700 5100 3    25   Input ~ 0
@@ -582,10 +578,6 @@ Wire Wire Line
 	5600 4800 5600 5100
 Wire Wire Line
 	6000 4800 6000 5000
-Wire Wire Line
-	5550 3300 5550 3650
-Wire Wire Line
-	5600 3300 5600 3650
 Wire Wire Line
 	6400 4600 6500 4600
 Wire Wire Line
@@ -1057,15 +1049,4 @@ Text Notes 5800 6000 0    60   ~ 0
 TX
 Text Notes 5800 6150 0    60   ~ 0
 RX
-$Comp
-L XC3S200A U1
-U 1 1 5481EB29
-P 2650 6100
-F 0 "U1" H 2650 6800 60  0000 C CNN
-F 1 "XC3S200A" H 2650 7000 60  0000 C CNN
-F 2 "~" H 2750 6000 60  0000 C CNN
-F 3 "~" H 2750 6000 60  0000 C CNN
-	1    2650 6100
-	1    0    0    -1  
-$EndComp
 $EndSCHEMATC

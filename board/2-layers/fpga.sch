@@ -1,0 +1,349 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:special
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:coolrunner
+LIBS:motor_drivers
+LIBS:stm32f103rg
+LIBS:DC_DC
+LIBS:oscillators
+LIBS:reworked
+LIBS:connectors
+LIBS:misc_ic
+LIBS:STM32F103RG_LQFP64
+LIBS:xc3s200a
+EELAYER 27 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 4 4
+Title ""
+Date "6 dec 2014"
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L XC3S200A U401
+U 1 1 54825DB5
+P 10350 1500
+F 0 "U401" H 10350 2200 60  0000 C CNN
+F 1 "XC3S200A" H 10350 2400 60  0000 C CNN
+F 2 "~" H 10450 1400 60  0000 C CNN
+F 3 "~" H 10450 1400 60  0000 C CNN
+	1    10350 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L XC3S200A U401
+U 5 1 54825DC4
+P 2100 5700
+F 0 "U401" H 2100 6400 60  0000 C CNN
+F 1 "XC3S200A" H 2100 6600 60  0000 C CNN
+F 2 "~" H 2200 5600 60  0000 C CNN
+F 3 "~" H 2200 5600 60  0000 C CNN
+	5    2100 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR073
+U 1 1 54825DD3
+P 1600 6850
+F 0 "#PWR073" H 1600 6850 30  0001 C CNN
+F 1 "GND" H 1600 6780 30  0001 C CNN
+F 2 "" H 1600 6850 60  0000 C CNN
+F 3 "" H 1600 6850 60  0000 C CNN
+	1    1600 6850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1800 5400 1600 5400
+Wire Wire Line
+	1600 5400 1600 6850
+Wire Wire Line
+	1800 5500 1600 5500
+Connection ~ 1600 5500
+Wire Wire Line
+	1800 5600 1600 5600
+Connection ~ 1600 5600
+Wire Wire Line
+	1800 5700 1600 5700
+Connection ~ 1600 5700
+Wire Wire Line
+	1800 5800 1600 5800
+Connection ~ 1600 5800
+Wire Wire Line
+	1800 5900 1600 5900
+Connection ~ 1600 5900
+Wire Wire Line
+	1800 6000 1600 6000
+Connection ~ 1600 6000
+Wire Wire Line
+	1800 6100 1600 6100
+Connection ~ 1600 6100
+Wire Wire Line
+	1800 6200 1600 6200
+Connection ~ 1600 6200
+Wire Wire Line
+	1800 6300 1600 6300
+Connection ~ 1600 6300
+Wire Wire Line
+	1800 6400 1600 6400
+Connection ~ 1600 6400
+Wire Wire Line
+	1800 6500 1600 6500
+Connection ~ 1600 6500
+Wire Wire Line
+	1800 6600 1600 6600
+Connection ~ 1600 6600
+$Comp
+L XC3S200A U?
+U 3 1 54826A0A
+P 10350 5550
+F 0 "U?" H 10350 6250 60  0000 C CNN
+F 1 "XC3S200A" H 10350 6450 60  0000 C CNN
+F 2 "~" H 10450 5450 60  0000 C CNN
+F 3 "~" H 10450 5450 60  0000 C CNN
+	3    10350 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 54826A3C
+P 7150 5300
+F 0 "R?" V 7230 5300 40  0000 C CNN
+F 1 "R" V 7157 5301 40  0000 C CNN
+F 2 "~" V 7080 5300 30  0000 C CNN
+F 3 "~" H 7150 5300 30  0000 C CNN
+	1    7150 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 54826A4B
+P 7400 5300
+F 0 "R?" V 7480 5300 40  0000 C CNN
+F 1 "R" V 7407 5301 40  0000 C CNN
+F 2 "~" V 7330 5300 30  0000 C CNN
+F 3 "~" H 7400 5300 30  0000 C CNN
+	1    7400 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 54826A5A
+P 7650 5300
+F 0 "R?" V 7730 5300 40  0000 C CNN
+F 1 "R" V 7657 5301 40  0000 C CNN
+F 2 "~" V 7580 5300 30  0000 C CNN
+F 3 "~" H 7650 5300 30  0000 C CNN
+	1    7650 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 54826A85
+P 7150 6150
+F 0 "R?" V 7230 6150 40  0000 C CNN
+F 1 "NE" V 7157 6151 40  0000 C CNN
+F 2 "~" V 7080 6150 30  0000 C CNN
+F 3 "~" H 7150 6150 30  0000 C CNN
+	1    7150 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 54826A8B
+P 7400 6150
+F 0 "R?" V 7480 6150 40  0000 C CNN
+F 1 "NE" V 7407 6151 40  0000 C CNN
+F 2 "~" V 7330 6150 30  0000 C CNN
+F 3 "~" H 7400 6150 30  0000 C CNN
+	1    7400 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 54826A91
+P 7650 6150
+F 0 "R?" V 7730 6150 40  0000 C CNN
+F 1 "NE" V 7657 6151 40  0000 C CNN
+F 2 "~" V 7580 6150 30  0000 C CNN
+F 3 "~" H 7650 6150 30  0000 C CNN
+	1    7650 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 54826A99
+P 7150 6600
+F 0 "#PWR?" H 7150 6600 30  0001 C CNN
+F 1 "GND" H 7150 6530 30  0001 C CNN
+F 2 "" H 7150 6600 60  0000 C CNN
+F 3 "" H 7150 6600 60  0000 C CNN
+	1    7150 6600
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 54826AA8
+P 7400 6600
+F 0 "#PWR?" H 7400 6600 30  0001 C CNN
+F 1 "GND" H 7400 6530 30  0001 C CNN
+F 2 "" H 7400 6600 60  0000 C CNN
+F 3 "" H 7400 6600 60  0000 C CNN
+	1    7400 6600
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 54826AB7
+P 7650 6600
+F 0 "#PWR?" H 7650 6600 30  0001 C CNN
+F 1 "GND" H 7650 6530 30  0001 C CNN
+F 2 "" H 7650 6600 60  0000 C CNN
+F 3 "" H 7650 6600 60  0000 C CNN
+	1    7650 6600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7650 6400 7650 6600
+Wire Wire Line
+	7400 6400 7400 6600
+Wire Wire Line
+	7150 6400 7150 6600
+Wire Wire Line
+	7650 5550 7650 5900
+Wire Wire Line
+	7400 5550 7400 5900
+Wire Wire Line
+	7150 5550 7150 5900
+Wire Wire Line
+	10050 6050 8550 6050
+Wire Wire Line
+	8550 6050 8550 5650
+Wire Wire Line
+	8550 5650 7150 5650
+Connection ~ 7150 5650
+Wire Wire Line
+	7400 5750 8450 5750
+Wire Wire Line
+	8450 5750 8450 6100
+Wire Wire Line
+	8450 6100 10050 6100
+Connection ~ 7400 5750
+Wire Wire Line
+	10050 6150 8350 6150
+Wire Wire Line
+	8350 6150 8350 5850
+Wire Wire Line
+	8350 5850 7650 5850
+Connection ~ 7650 5850
+Text Notes 8550 4850 0    39   ~ 0
+M0
+Text Notes 8700 4850 0    39   ~ 0
+M1
+Text Notes 8850 4850 0    39   ~ 0
+M2
+Wire Notes Line
+	8500 4775 9350 4775
+Wire Notes Line
+	8500 4850 9350 4850
+Text Notes 8975 4925 0    39   ~ 0
+Slave Serial
+Text Notes 9075 5000 0    39   ~ 0
+JTAG
+Wire Notes Line
+	8500 4925 9350 4925
+Wire Notes Line
+	8500 5000 9350 5000
+Text Notes 8575 4925 0    39   ~ 0
+1
+Text Notes 8725 4925 0    39   ~ 0
+1
+Text Notes 8875 4925 0    39   ~ 0
+1
+Text Notes 8575 5000 0    39   ~ 0
+1
+Text Notes 8875 5000 0    39   ~ 0
+1
+Text Notes 8725 5000 0    39   ~ 0
+0
+Wire Notes Line
+	9350 5000 9350 4775
+Wire Notes Line
+	8950 5000 8950 4775
+Wire Notes Line
+	8800 5000 8800 4775
+Wire Notes Line
+	8650 5000 8650 4775
+Wire Notes Line
+	8500 4775 8500 5000
+Text Notes 8500 5100 0    39   ~ 0
+For other mode: UG332 (PDF)
+Text GLabel 9650 5450 0    39   Input ~ 0
+DIN
+Text GLabel 9650 5350 0    39   Input ~ 0
+CCLK
+Wire Wire Line
+	9650 5350 10050 5350
+Wire Wire Line
+	9650 5450 10050 5450
+$Comp
+L XC3S200A U?
+U 6 1 54826FE4
+P 4700 5700
+F 0 "U?" H 4700 6400 60  0000 C CNN
+F 1 "XC3S200A" H 4700 6600 60  0000 C CNN
+F 2 "~" H 4800 5600 60  0000 C CNN
+F 3 "~" H 4800 5600 60  0000 C CNN
+	6    4700 5700
+	1    0    0    -1  
+$EndComp
+Text GLabel 4150 5800 0    39   Input ~ 0
+FPGA_TCK
+Text GLabel 3775 5850 0    39   Input ~ 0
+FPGA_TDI
+Text GLabel 3425 5900 0    39   Output ~ 0
+FPGA_TDO
+Text GLabel 3050 5950 0    39   Input ~ 0
+FPGA_TMS
+Wire Wire Line
+	4400 5800 4150 5800
+Wire Wire Line
+	3775 5850 4400 5850
+Wire Wire Line
+	3425 5900 4400 5900
+Wire Wire Line
+	3050 5950 4400 5950
+$EndSCHEMATC
