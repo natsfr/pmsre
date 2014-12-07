@@ -1,4 +1,88 @@
-Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 05/12/2014 17:33:56
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 06/12/2014 21:43:27
+
+BeginCmp
+TimeStamp = /51F0DFA4/548348D3;
+Reference = C1;
+ValeurCmp = 4.7u;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /51F0DFA4/54834C1D;
+Reference = C2;
+ValeurCmp = 4.7u;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /51F0DFA4/54834C2C;
+Reference = C3;
+ValeurCmp = 4.7u;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54835C44;
+Reference = C4;
+ValeurCmp = 1u;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54835A30;
+Reference = C5;
+ValeurCmp = 1u;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54835A5D;
+Reference = C6;
+ValeurCmp = 100n;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54835A21;
+Reference = C7;
+ValeurCmp = 100n;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54835A4E;
+Reference = C8;
+ValeurCmp = 100n;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54835A12;
+Reference = C9;
+ValeurCmp = 10n;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54835A3F;
+Reference = C10;
+ValeurCmp = 10n;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54836AFF;
+Reference = C11;
+ValeurCmp = 1u;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54836AF0;
+Reference = C12;
+ValeurCmp = 100n;
+IdModule  = ;
+EndCmp
 
 BeginCmp
 TimeStamp = /5181BE69;
@@ -274,13 +358,6 @@ IdModule  = LED-0603;
 EndCmp
 
 BeginCmp
-TimeStamp = /51F0DFA4/51F659D8;
-Reference = D301;
-ValeurCmp = BAS16;
-IdModule  = SOD923;
-EndCmp
-
-BeginCmp
 TimeStamp = /51E92737/51F8F13B;
 Reference = J201;
 ValeurCmp = USB_OTG;
@@ -288,10 +365,24 @@ IdModule  = Molex_54819-0572;
 EndCmp
 
 BeginCmp
+TimeStamp = /51F0DFA4/54834A43;
+Reference = L1;
+ValeurCmp = 1u;
+IdModule  = ;
+EndCmp
+
+BeginCmp
 TimeStamp = /51F0DFA4/51F1325E;
 Reference = L301;
 ValeurCmp = 10uH;
 IdModule  = IND_7x7x4.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /54827047;
+Reference = P1;
+ValeurCmp = JTAG;
+IdModule  = ;
 EndCmp
 
 BeginCmp
@@ -369,6 +460,55 @@ TimeStamp = /51F0DFA4/51F8EDC3;
 Reference = P301;
 ValeurCmp = 12V_Conn;
 IdModule  = MOL_CONN_2_VH;
+EndCmp
+
+BeginCmp
+TimeStamp = /51F0DFA4/54834833;
+Reference = R1;
+ValeurCmp = 10k;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /51F0DFA4/54834A5C;
+Reference = R2;
+ValeurCmp = 200k;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /51F0DFA4/54834A6B;
+Reference = R3;
+ValeurCmp = 200k;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54826A3C;
+Reference = R4;
+ValeurCmp = R;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54826A4B;
+Reference = R5;
+ValeurCmp = R;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54826A8B;
+Reference = R6;
+ValeurCmp = NE;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54826A5A;
+Reference = R7;
+ValeurCmp = R;
+IdModule  = ;
 EndCmp
 
 BeginCmp
@@ -617,9 +757,9 @@ IdModule  = SM0603;
 EndCmp
 
 BeginCmp
-TimeStamp = /51E92737/5481EB29;
+TimeStamp = /51F0DFA4/548345B9;
 Reference = U1;
-ValeurCmp = XC3S200A;
+ValeurCmp = MP2128-SOT23;
 IdModule  = TQFP_100;
 EndCmp
 
@@ -656,6 +796,13 @@ TimeStamp = /51F0DFA4/51F27799;
 Reference = U301;
 ValeurCmp = MP2303_SOIC8E;
 IdModule  = SOIC8_EPad;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54825DB5;
+Reference = U401;
+ValeurCmp = XC3S200A;
+IdModule  = TQFP_100;
 EndCmp
 
 BeginCmp
