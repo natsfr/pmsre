@@ -1,6 +1,6 @@
-update=06/12/2014 02:11:17
+update=Fri 12 Dec 2014 10:20:05 AM CET
 version=1
-last_client=eeschema
+last_client=cvpcb
 [pcbnew]
 version=1
 LastNetListRead=stepper_controller.net
@@ -38,14 +38,10 @@ LibName14=SOIC
 LibName15=inductors
 LibName16=DIODES
 LibName17=SMD_OSC
-LibDir=../../Kicad-Parts/footprints
+LibName18=LQFP64
+LibDir=../../../nus/Kicad-Parts/footprints
 [general]
 version=1
-[cvpcb]
-version=1
-NetIExt=net
-[cvpcb/libraries]
-EquName1=devcms
 [eeschema]
 version=1
 LibDir=../components/XC3S200A;../../../nus/Kicad-Parts/sch
@@ -95,3 +91,8 @@ LibName37=connectors
 LibName38=misc_ic
 LibName39=STM32F103RG_LQFP64
 LibName40=xc3s200a
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms
