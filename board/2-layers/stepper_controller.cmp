@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-jul-07)-stable date = Fri 12 Dec 2014 10:20:54 AM CET
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 04/01/2015 15:42:37
 
 BeginCmp
 TimeStamp = /5181BE69;
@@ -123,6 +123,27 @@ BeginCmp
 TimeStamp = /5181BEA7;
 Reference = C118;
 ValeurCmp = 4.7u;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A95298;
+Reference = C119;
+ValeurCmp = 1u;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A95289;
+Reference = C120;
+ValeurCmp = 0.1u;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A952A7;
+Reference = C121;
+ValeurCmp = 10n;
 IdModule  = ;
 EndCmp
 
@@ -365,6 +386,20 @@ IdModule  = ;
 EndCmp
 
 BeginCmp
+TimeStamp = /54825C52/54A9A849;
+Reference = C414;
+ValeurCmp = 1u;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /54825C52/54A9A843;
+Reference = C415;
+ValeurCmp = 100n;
+IdModule  = ;
+EndCmp
+
+BeginCmp
 TimeStamp = /51E92737/51FBDFD4;
 Reference = D201;
 ValeurCmp = FAULT_RED;
@@ -515,48 +550,6 @@ BeginCmp
 TimeStamp = /5182383E;
 Reference = R106;
 ValeurCmp = 0;
-IdModule  = ;
-EndCmp
-
-BeginCmp
-TimeStamp = /5181BEE6;
-Reference = R107;
-ValeurCmp = 4.7k;
-IdModule  = ;
-EndCmp
-
-BeginCmp
-TimeStamp = /5181BEEC;
-Reference = R108;
-ValeurCmp = 1k;
-IdModule  = ;
-EndCmp
-
-BeginCmp
-TimeStamp = /5181B5DE;
-Reference = R109;
-ValeurCmp = 4.7k;
-IdModule  = ;
-EndCmp
-
-BeginCmp
-TimeStamp = /5181B5ED;
-Reference = R110;
-ValeurCmp = 1k;
-IdModule  = ;
-EndCmp
-
-BeginCmp
-TimeStamp = /5181BDFF;
-Reference = R111;
-ValeurCmp = 4.7k;
-IdModule  = ;
-EndCmp
-
-BeginCmp
-TimeStamp = /5181BE05;
-Reference = R112;
-ValeurCmp = 1k;
 IdModule  = ;
 EndCmp
 
@@ -778,10 +771,24 @@ IdModule  = HTSSOP28_PowerPad;
 EndCmp
 
 BeginCmp
+TimeStamp = /54A949CF;
+Reference = U104;
+ValeurCmp = MAX5713/4/5-TSSOP14;
+IdModule  = SSOP14;
+EndCmp
+
+BeginCmp
 TimeStamp = /51E92737/51FBA36E;
 Reference = U201;
 ValeurCmp = STM32F103RG_LQFP64;
 IdModule  = LQFP_64;
+EndCmp
+
+BeginCmp
+TimeStamp = /51F0DFA4/548345B9;
+Reference = U301;
+ValeurCmp = MP2128-SOT23;
+IdModule  = ;
 EndCmp
 
 BeginCmp

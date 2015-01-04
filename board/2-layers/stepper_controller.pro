@@ -1,6 +1,6 @@
-update=Fri 12 Dec 2014 10:20:05 AM CET
+update=04/01/2015 13:30:19
 version=1
-last_client=cvpcb
+last_client=eeschema
 [pcbnew]
 version=1
 LastNetListRead=stepper_controller.net
@@ -42,9 +42,14 @@ LibName18=LQFP64
 LibDir=../../../nus/Kicad-Parts/footprints
 [general]
 version=1
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms
 [eeschema]
 version=1
-LibDir=../components/XC3S200A;../../../nus/Kicad-Parts/sch
+LibDir=../components/XC3S200A;../../../nus/Kicad-Parts/sch;../components
 NetFmtName=PcbnewAdvanced
 RptD_X=0
 RptD_Y=100
@@ -91,8 +96,4 @@ LibName37=connectors
 LibName38=misc_ic
 LibName39=STM32F103RG_LQFP64
 LibName40=xc3s200a
-[cvpcb]
-version=1
-NetIExt=net
-[cvpcb/libraries]
-EquName1=devcms
+LibName41=DAC
