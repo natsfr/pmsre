@@ -47,7 +47,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 4 4
 Title ""
-Date "4 jan 2015"
+Date "6 jan 2015"
 Rev ""
 Comp ""
 Comment1 ""
@@ -804,38 +804,26 @@ Wire Wire Line
 	7350 1400 7450 1400
 Wire Wire Line
 	7350 1450 7450 1450
-Text HLabel 7150 1550 0    25   Output ~ 0
+Text HLabel 7150 1850 0    25   Output ~ 0
 M0_EN
 Wire Wire Line
 	7450 1550 7150 1550
-Text HLabel 7150 1500 0    25   Output ~ 0
+Text HLabel 7150 2000 0    25   Output ~ 0
 M0_RESET
-Text HLabel 7150 1650 0    25   Output ~ 0
-M0_STEP
 Text HLabel 7150 1600 0    25   Output ~ 0
+M0_STEP
+Text HLabel 7150 1800 0    25   Output ~ 0
 M0_DIR
 Wire Wire Line
-	7150 1500 7450 1500
-Wire Wire Line
-	7150 1600 7450 1600
-Wire Wire Line
 	7150 1650 7450 1650
-Text HLabel 7150 1850 0    25   Output ~ 0
+Text HLabel 7150 1650 0    25   Output ~ 0
 M0_MODE0
-Wire Wire Line
-	7450 1850 7150 1850
-Text HLabel 7150 1800 0    25   Output ~ 0
+Text HLabel 7150 1500 0    25   Output ~ 0
 M0_MODE1
-Text HLabel 7150 2050 0    25   Output ~ 0
+Text HLabel 7150 1550 0    25   Output ~ 0
 M0_MODE2
-Wire Wire Line
-	7150 1800 7450 1800
-Wire Wire Line
-	7150 2050 7450 2050
-Text HLabel 7150 2000 0    25   Input ~ 0
+Text HLabel 7150 2050 0    25   Input ~ 0
 M0_FAULT
-Wire Wire Line
-	7150 2000 7450 2000
 Text HLabel 9900 1300 0    25   Output ~ 0
 M1_MODE2
 Wire Wire Line
@@ -980,4 +968,16 @@ Text HLabel 4350 1550 0    25   Output ~ 0
 M2_RESET
 Wire Wire Line
 	4350 1550 4500 1550
+Wire Wire Line
+	7150 2000 7450 2000
+Wire Wire Line
+	7150 2050 7450 2050
+Wire Wire Line
+	7150 1800 7450 1800
+Wire Wire Line
+	7450 1850 7150 1850
+Wire Wire Line
+	7450 1600 7150 1600
+Wire Wire Line
+	7150 1500 7450 1500
 $EndSCHEMATC

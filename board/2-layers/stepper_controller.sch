@@ -47,7 +47,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 4
 Title ""
-Date "4 jan 2015"
+Date "6 jan 2015"
 Rev ""
 Comp ""
 Comment1 ""
@@ -171,13 +171,9 @@ Wire Wire Line
 Wire Wire Line
 	10575 1525 10575 1550
 Wire Wire Line
-	10575 1550 10675 1550
-Wire Wire Line
 	9575 1575 10525 1575
 Wire Wire Line
 	10525 1575 10525 1750
-Wire Wire Line
-	10525 1750 10675 1750
 Wire Wire Line
 	9200 4250 9200 4350
 Wire Wire Line
@@ -292,13 +288,9 @@ Wire Wire Line
 Wire Wire Line
 	10550 3650 10550 3675
 Wire Wire Line
-	10550 3675 10650 3675
-Wire Wire Line
 	9550 3700 10500 3700
 Wire Wire Line
 	10500 3700 10500 3875
-Wire Wire Line
-	10500 3875 10650 3875
 Wire Wire Line
 	9550 4050 9625 4050
 Wire Wire Line
@@ -411,13 +403,9 @@ Wire Wire Line
 Wire Wire Line
 	10525 5675 10525 5700
 Wire Wire Line
-	10525 5700 10625 5700
-Wire Wire Line
 	9525 5725 10475 5725
 Wire Wire Line
 	10475 5725 10475 5900
-Wire Wire Line
-	10475 5900 10625 5900
 Wire Wire Line
 	9525 6075 9600 6075
 Wire Wire Line
@@ -718,7 +706,7 @@ F 1 "M1_BOUT" V 11075 1650 40  0000 C CNN
 F 2 "" H 11025 1650 60  0001 C CNN
 F 3 "" H 11025 1650 60  0001 C CNN
 	1    11025 1650
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 NoConn ~ 9575 1975
 Text Notes 650  775  0    100  ~ 0
@@ -934,7 +922,7 @@ F 1 "M2_BOUT" V 11050 3775 40  0000 C CNN
 F 2 "" H 11000 3775 60  0001 C CNN
 F 3 "" H 11000 3775 60  0001 C CNN
 	1    11000 3775
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 NoConn ~ 9550 4100
 Text GLabel 9625 4050 2    25   Output ~ 0
@@ -1150,7 +1138,7 @@ F 1 "M3_BOUT" V 11025 5800 40  0000 C CNN
 F 2 "" H 10975 5800 60  0001 C CNN
 F 3 "" H 10975 5800 60  0001 C CNN
 	1    10975 5800
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 NoConn ~ 9525 6125
 Text GLabel 9600 6075 2    25   Output ~ 0
@@ -1853,4 +1841,16 @@ Text Label 2100 4550 2    25   ~ 0
 /CLR_DAC
 Text Label 4400 5750 0    25   ~ 0
 /CLR_DAC
+Wire Wire Line
+	10575 1550 10675 1550
+Wire Wire Line
+	10525 1750 10675 1750
+Wire Wire Line
+	10550 3675 10650 3675
+Wire Wire Line
+	10500 3875 10650 3875
+Wire Wire Line
+	10525 5700 10625 5700
+Wire Wire Line
+	10475 5900 10625 5900
 $EndSCHEMATC

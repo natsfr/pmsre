@@ -47,7 +47,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 4
 Title ""
-Date "4 jan 2015"
+Date "6 jan 2015"
 Rev ""
 Comp ""
 Comment1 ""
@@ -413,13 +413,13 @@ DC_FB
 $Comp
 L CONN_2 P301
 U 1 1 51F8EDC3
-P 10600 950
-F 0 "P301" V 10550 950 40  0000 C CNN
-F 1 "12V_Conn" V 10650 950 40  0000 C CNN
-F 2 "" H 10600 950 60  0000 C CNN
-F 3 "" H 10600 950 60  0000 C CNN
-	1    10600 950 
-	1    0    0    -1  
+P 10500 950
+F 0 "P301" V 10450 950 40  0000 C CNN
+F 1 "12V_Conn" V 10550 950 40  0000 C CNN
+F 2 "" H 10500 950 60  0000 C CNN
+F 3 "" H 10500 950 60  0000 C CNN
+	1    10500 950 
+	1    0    0    1   
 $EndComp
 $Comp
 L +12V #PWR079
@@ -445,10 +445,6 @@ F 3 "" H 10150 1150 60  0000 C CNN
 $EndComp
 Wire Wire Line
 	10150 750  10150 850 
-Wire Wire Line
-	10150 850  10250 850 
-Wire Wire Line
-	10250 1050 10150 1050
 Wire Wire Line
 	10150 1050 10150 1150
 $Comp
