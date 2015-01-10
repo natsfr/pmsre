@@ -40,6 +40,7 @@ LIBS:misc_ic
 LIBS:STM32F103RG_LQFP64
 LIBS:xc3s200a
 LIBS:DAC
+LIBS:resistors
 LIBS:stepper_controller-cache
 EELAYER 27 0
 EELAYER END
@@ -47,7 +48,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 4 4
 Title ""
-Date "6 jan 2015"
+Date "7 jan 2015"
 Rev ""
 Comp ""
 Comment1 ""

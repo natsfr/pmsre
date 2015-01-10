@@ -1,4 +1,4 @@
-update=04/01/2015 13:30:19
+update=Wed 07 Jan 2015 09:51:04 AM CET
 version=1
 last_client=eeschema
 [pcbnew]
@@ -49,7 +49,7 @@ NetIExt=net
 EquName1=devcms
 [eeschema]
 version=1
-LibDir=../components/XC3S200A;../../../nus/Kicad-Parts/sch;../components
+LibDir=../components/XC3S200A;../../../nus/Kicad-Parts/sch;../components;../../../nus/Kicad-Parts/fixed_lib
 NetFmtName=PcbnewAdvanced
 RptD_X=0
 RptD_Y=100
@@ -97,3 +97,4 @@ LibName38=misc_ic
 LibName39=STM32F103RG_LQFP64
 LibName40=xc3s200a
 LibName41=DAC
+LibName42=resistors
