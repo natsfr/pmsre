@@ -782,4 +782,8 @@ Wire Wire Line
 	10250 2450 10250 2550
 Wire Wire Line
 	10100 2450 10100 2550
+Text Label 3400 5450 0    25   ~ 0
+1.2_SW
+Text Label 3700 6050 0    25   ~ 0
+1.2_FB
 $EndSCHEMATC
