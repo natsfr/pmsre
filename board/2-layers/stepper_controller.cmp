@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-jul-07)-stable date = Tue 13 Jan 2015 09:59:26 AM CET
+Cmp-Mod V01 Created by CvPcb (2013-jul-07)-stable date = Sun 18 Jan 2015 01:11:27 AM CET
 
 BeginCmp
 TimeStamp = /5181BE69;
@@ -477,45 +477,24 @@ IdModule  = ;
 EndCmp
 
 BeginCmp
-TimeStamp = /5181BEC5;
+TimeStamp = /54BB6E99;
 Reference = P103;
-ValeurCmp = M3_AOUT;
-IdModule  = MOL_CONN_2_VH;
+ValeurCmp = CONN_4;
+IdModule  = MOL_CONN_4_VH;
 EndCmp
 
 BeginCmp
-TimeStamp = /5181BECB;
-Reference = P104;
-ValeurCmp = M3_BOUT;
-IdModule  = MOL_CONN_2_VH;
-EndCmp
-
-BeginCmp
-TimeStamp = /5181BDDE;
+TimeStamp = /54BB4972;
 Reference = P105;
-ValeurCmp = M2_AOUT;
-IdModule  = MOL_CONN_2_VH;
+ValeurCmp = CONN_4;
+IdModule  = MOL_CONN_4_VH;
 EndCmp
 
 BeginCmp
-TimeStamp = /5181BDE4;
-Reference = P106;
-ValeurCmp = M2_BOUT;
-IdModule  = MOL_CONN_2_VH;
-EndCmp
-
-BeginCmp
-TimeStamp = /5181B21B;
+TimeStamp = /54BAFE4F;
 Reference = P107;
-ValeurCmp = M1_AOUT;
-IdModule  = MOL_CONN_2_VH;
-EndCmp
-
-BeginCmp
-TimeStamp = /5181B22A;
-Reference = P108;
-ValeurCmp = M1_BOUT;
-IdModule  = MOL_CONN_2_VH;
+ValeurCmp = CONN_4;
+IdModule  = MOL_CONN_4_VH;
 EndCmp
 
 BeginCmp
