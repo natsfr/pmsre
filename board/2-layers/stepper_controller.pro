@@ -1,4 +1,4 @@
-update=Thu 15 Jan 2015 10:00:29 AM CET
+update=Tue 20 Jan 2015 09:39:04 AM CET
 version=1
 last_client=pcbnew
 [general]
@@ -63,10 +63,10 @@ LibName42=resistors
 version=1
 LastNetListRead=stepper_controller.net
 UseCmpFile=1
-PadDrill="    0.000000"
-PadDrillOvalY="    0.000000"
-PadSizeH="    0.635000"
-PadSizeV="    1.143000"
+PadDrill="    3.000000"
+PadDrillOvalY="    3.000000"
+PadSizeH="    3.000000"
+PadSizeV="    3.000000"
 PcbTextSizeV="    2.032000"
 PcbTextSizeH="    1.524000"
 PcbTextThickness="    0.304800"
@@ -77,7 +77,7 @@ SolderMaskClearance="    0.152000"
 SolderMaskMinWidth="    0.000000"
 DrawSegmentWidth="    0.381000"
 BoardOutlineThickness="    0.100000"
-ModuleOutlineThickness="    0.100000"
+ModuleOutlineThickness="    0.250000"
 [pcbnew/libraries]
 LibDir=../../../nus/Kicad-Parts/footprints;../components/footprint
 LibName1=sockets
@@ -99,3 +99,4 @@ LibName16=DIODES
 LibName17=SMD_OSC
 LibName18=LQFP64
 LibName19=via_wkaround
+LibName20=np_holes
