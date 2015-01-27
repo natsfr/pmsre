@@ -48,7 +48,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 4
 Title ""
-Date "26 jan 2015"
+Date "27 jan 2015"
 Rev ""
 Comp ""
 Comment1 ""
@@ -110,7 +110,7 @@ Wire Wire Line
 Wire Wire Line
 	8450 1775 8775 1775
 Wire Wire Line
-	8450 1725 8450 1825
+	8450 1575 8450 1825
 Connection ~ 8450 1775
 Wire Wire Line
 	8450 2025 8450 2075
@@ -171,12 +171,6 @@ Connection ~ 9200 4300
 Wire Wire Line
 	9250 4300 9250 4250
 Wire Wire Line
-	8375 3600 8750 3600
-Wire Wire Line
-	8375 3650 8750 3650
-Wire Wire Line
-	8375 3700 8750 3700
-Wire Wire Line
 	9550 3300 9900 3300
 Wire Wire Line
 	9900 3300 9900 3200
@@ -213,7 +207,7 @@ Wire Wire Line
 Wire Wire Line
 	8425 3900 8750 3900
 Wire Wire Line
-	8425 3850 8425 3950
+	8425 3700 8425 3950
 Connection ~ 8425 3900
 Wire Wire Line
 	8425 4150 8425 4200
@@ -310,7 +304,7 @@ Wire Wire Line
 Wire Wire Line
 	8400 5925 8725 5925
 Wire Wire Line
-	8400 5875 8400 5975
+	8400 5725 8400 5975
 Connection ~ 8400 5925
 Wire Wire Line
 	8400 6175 8400 6225
@@ -508,12 +502,12 @@ $EndComp
 $Comp
 L +3.3V #PWR05
 U 1 1 5181A79E
-P 8450 1725
-F 0 "#PWR05" H 8450 1685 30  0001 C CNN
-F 1 "+3.3V" H 8450 1835 30  0000 C CNN
-F 2 "" H 8450 1725 60  0001 C CNN
-F 3 "" H 8450 1725 60  0001 C CNN
-	1    8450 1725
+P 8325 1425
+F 0 "#PWR05" H 8325 1385 30  0001 C CNN
+F 1 "+3.3V" H 8325 1535 30  0000 C CNN
+F 2 "" H 8325 1425 60  0001 C CNN
+F 3 "" H 8325 1425 60  0001 C CNN
+	1    8325 1425
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -702,12 +696,12 @@ $EndComp
 $Comp
 L +3.3V #PWR013
 U 1 1 5181BD7A
-P 8425 3850
-F 0 "#PWR013" H 8425 3810 30  0001 C CNN
-F 1 "+3.3V" H 8425 3960 30  0000 C CNN
-F 2 "" H 8425 3850 60  0001 C CNN
-F 3 "" H 8425 3850 60  0001 C CNN
-	1    8425 3850
+P 8300 3550
+F 0 "#PWR013" H 8300 3510 30  0001 C CNN
+F 1 "+3.3V" H 8300 3660 30  0000 C CNN
+F 2 "" H 8300 3550 60  0001 C CNN
+F 3 "" H 8300 3550 60  0001 C CNN
+	1    8300 3550
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -894,12 +888,12 @@ $EndComp
 $Comp
 L +3.3V #PWR021
 U 1 1 5181BE61
-P 8400 5875
-F 0 "#PWR021" H 8400 5835 30  0001 C CNN
-F 1 "+3.3V" H 8400 5985 30  0000 C CNN
-F 2 "" H 8400 5875 60  0001 C CNN
-F 3 "" H 8400 5875 60  0001 C CNN
-	1    8400 5875
+P 8250 5575
+F 0 "#PWR021" H 8250 5535 30  0001 C CNN
+F 1 "+3.3V" H 8250 5685 30  0000 C CNN
+F 2 "" H 8250 5575 60  0001 C CNN
+F 3 "" H 8250 5575 60  0001 C CNN
+	1    8250 5575
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1281,12 +1275,6 @@ Wire Wire Line
 Wire Wire Line
 	8775 1225 8375 1225
 Wire Wire Line
-	8775 1475 8375 1475
-Wire Wire Line
-	8775 1525 8375 1525
-Wire Wire Line
-	8775 1575 8375 1575
-Wire Wire Line
 	9575 1925 9850 1925
 Text Label 8375 1025 0    25   ~ 0
 M0_EN
@@ -1301,12 +1289,6 @@ Text Label 8375 1225 0    25   ~ 0
 M0_STEP
 Text Label 8375 1275 0    25   ~ 0
 M0_DIR
-Text Label 8375 1475 0    25   ~ 0
-M0_MODE0
-Text Label 8375 1525 0    25   ~ 0
-M0_MODE1
-Text Label 8375 1575 0    25   ~ 0
-M0_MODE2
 Text Label 9850 1925 2    25   ~ 0
 M0_FAULT
 Wire Wire Line
@@ -1360,12 +1342,6 @@ Text Label 8375 3350 0    25   ~ 0
 M1_STEP
 Text Label 8375 3400 0    25   ~ 0
 M1_DIR
-Text Label 8375 3600 0    25   ~ 0
-M1_MODE0
-Text Label 8375 3650 0    25   ~ 0
-M1_MODE1
-Text Label 8375 3700 0    25   ~ 0
-M1_MODE2
 Wire Wire Line
 	4700 3500 4250 3500
 Wire Wire Line
@@ -1419,18 +1395,6 @@ Text Label 8350 5375 0    25   ~ 0
 M2_STEP
 Text Label 8350 5425 0    25   ~ 0
 M2_DIR
-Wire Wire Line
-	8350 5625 8725 5625
-Wire Wire Line
-	8350 5675 8725 5675
-Wire Wire Line
-	8350 5725 8725 5725
-Text Label 8350 5625 0    25   ~ 0
-M2_MODE0
-Text Label 8350 5675 0    25   ~ 0
-M2_MODE1
-Text Label 8350 5725 0    25   ~ 0
-M2_MODE2
 $Comp
 L MAX5713/4/5-TSSOP14 U104
 U 1 1 54A949CF
@@ -2073,4 +2037,56 @@ Wire Wire Line
 Wire Wire Line
 	6050 5650 6150 5650
 Connection ~ 6150 5750
+Wire Wire Line
+	8250 5575 8250 5725
+Wire Wire Line
+	8250 5725 8725 5725
+Connection ~ 8400 5725
+Wire Wire Line
+	8725 5675 8600 5675
+Wire Wire Line
+	8600 5625 8600 5725
+Connection ~ 8600 5725
+Wire Wire Line
+	8725 5625 8600 5625
+Connection ~ 8600 5675
+Text Notes 8450 5850 0    60   ~ 0
+GRUIK !
+Wire Wire Line
+	8300 3550 8300 3700
+Wire Wire Line
+	8300 3700 8750 3700
+Connection ~ 8425 3700
+Wire Wire Line
+	8750 3650 8625 3650
+Wire Wire Line
+	8625 3600 8625 3700
+Connection ~ 8625 3700
+Wire Wire Line
+	8750 3600 8625 3600
+Connection ~ 8625 3650
+Wire Wire Line
+	8325 1425 8325 1575
+Wire Wire Line
+	8325 1575 8775 1575
+Connection ~ 8450 1575
+Wire Wire Line
+	8775 1525 8675 1525
+Wire Wire Line
+	8675 1475 8675 1575
+Connection ~ 8675 1575
+Wire Wire Line
+	8775 1475 8675 1475
+Connection ~ 8675 1525
+$Comp
+L CONN_6X2 P106
+U 1 1 54C76335
+P 1750 5450
+F 0 "P106" H 1750 5800 60  0000 C CNN
+F 1 "CONN_6X2" V 1750 5450 60  0000 C CNN
+F 2 "pin_array_6x2" H 1750 5450 60  0001 C CNN
+F 3 "" H 1750 5450 60  0000 C CNN
+	1    1750 5450
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
