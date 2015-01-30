@@ -935,4 +935,12 @@ Wire Wire Line
 	5850 4800 5850 5100
 Wire Wire Line
 	5800 4800 5800 5100
+Text HLabel 4850 3950 0    25   BiDi ~ 0
+PC14
+Text HLabel 4850 4000 0    25   BiDi ~ 0
+PC15
+Wire Wire Line
+	4850 3950 5250 3950
+Wire Wire Line
+	4850 4000 5250 4000
 $EndSCHEMATC
