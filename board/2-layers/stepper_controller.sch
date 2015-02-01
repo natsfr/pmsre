@@ -48,7 +48,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 4
 Title ""
-Date "31 jan 2015"
+Date "1 feb 2015"
 Rev ""
 Comp ""
 Comment1 ""
@@ -1521,7 +1521,6 @@ Text Label 7300 6850 2    25   ~ 0
 VRF_1
 Text Label 7300 6800 2    25   ~ 0
 VRF_2
-NoConn ~ 6450 6950
 Text Label 2000 2350 0    25   ~ 0
 CS_DAC
 Text Label 2000 2450 0    25   ~ 0
@@ -2025,21 +2024,6 @@ F 3 "" H 650 5850 60  0001 C CNN
 	1    650  5850
 	1    0    0    -1  
 $EndComp
-$Comp
-L GND #PWR049
-U 1 1 54CA0A30
-P 2100 5850
-F 0 "#PWR049" H 2100 5850 30  0001 C CNN
-F 1 "GND" H 2100 5780 30  0001 C CNN
-F 2 "" H 2100 5850 60  0001 C CNN
-F 3 "" H 2100 5850 60  0001 C CNN
-	1    2100 5850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1800 5750 2100 5750
-Wire Wire Line
-	2100 5750 2100 5850
 Wire Wire Line
 	1000 5750 650  5750
 Wire Wire Line
@@ -2122,10 +2106,10 @@ F 3 "" H 5800 2600 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR050
+L GND #PWR049
 U 1 1 54CB75ED
 P 5300 2850
-F 0 "#PWR050" H 5300 2850 30  0001 C CNN
+F 0 "#PWR049" H 5300 2850 30  0001 C CNN
 F 1 "GND" H 5300 2780 30  0001 C CNN
 F 2 "" H 5300 2850 60  0000 C CNN
 F 3 "" H 5300 2850 60  0000 C CNN
@@ -2250,4 +2234,12 @@ Wire Wire Line
 	4600 5050 4600 5650
 Wire Wire Line
 	4600 5650 5250 5650
+Wire Wire Line
+	1800 5750 2100 5750
+Wire Wire Line
+	6450 6950 6750 6950
+Text Label 6750 6950 2    25   ~ 0
+OUTD_DAC
+Text Label 2100 5750 2    25   ~ 0
+OUTD_DAC
 $EndSCHEMATC
