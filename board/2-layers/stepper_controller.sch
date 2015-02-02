@@ -29,18 +29,14 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:coolrunner
-LIBS:motor_drivers
-LIBS:stm32f103rg
-LIBS:DC_DC
-LIBS:oscillators
-LIBS:reworked
-LIBS:connectors
-LIBS:misc_ic
+LIBS:MAX571X-TSSOP14
 LIBS:STM32F103RG_LQFP64
-LIBS:xc3s200a
-LIBS:DAC
+LIBS:xc3s200a-vq100
 LIBS:resistors
+LIBS:DRV8825
+LIBS:MPS_DCDC
+LIBS:MISC_CONNECTORS
+LIBS:xtals
 LIBS:stepper_controller-cache
 EELAYER 27 0
 EELAYER END
@@ -48,7 +44,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 4
 Title ""
-Date "1 feb 2015"
+Date "2 feb 2015"
 Rev ""
 Comp ""
 Comment1 ""
