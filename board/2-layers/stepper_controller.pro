@@ -1,4 +1,4 @@
-update=02/02/2015 01:47:41
+update=07/02/2015 16:27:49
 version=1
 last_client=eeschema
 [general]
@@ -91,8 +91,8 @@ LibName30=valves
 LibName31=DAC/MAXIM/MAX571X-TSSOP14
 LibName32=uC/ST/STM32F103RG_LQFP64
 LibName33=FPGA/Xilinx/Spartan 3/xc3s200a-vq100
-LibName34=Passive/resistors
-LibName35=Motors_Drivers/TI/DRV8825
-LibName36=Power/MPS/MPS_DCDC
-LibName37=Connectors/MISC/MISC_CONNECTORS
-LibName38=Oscillator/Xtal/xtals
+LibName34=Motors_Drivers/TI/DRV8825
+LibName35=Power/MPS/MPS_DCDC
+LibName36=Connectors/MISC/MISC_CONNECTORS
+LibName37=Oscillator/Xtal/xtals
+LibName38=Passive/passives
