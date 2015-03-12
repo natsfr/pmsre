@@ -8,4 +8,5 @@
   (lib (name SOIC)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/SOIC.pretty)(options "")(descr ""))
   (lib (name Connectors_254mm)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/Connectors_254mm.pretty)(options "")(descr ""))
   (lib (name Connectors_508mm)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/Connectors_508mm.pretty)(options "")(descr ""))
+  (lib (name Mounting_Holes)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/Mounting_Holes.pretty)(options "")(descr ""))
 )

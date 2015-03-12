@@ -512,7 +512,7 @@ F 1 "0.47u" V 8375 1875 30  0000 L CNN
 F 2 "General_SMD:SM0603" H 8450 1925 60  0001 C CNN
 F 3 "~" H 8450 1925 60  0000 C CNN
 	1    8450 1925
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L GND #PWR05
