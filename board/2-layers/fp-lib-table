@@ -1,0 +1,11 @@
+(fp_lib_table
+  (lib (name Connectors_USB)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/Connectors_USB.pretty)(options "")(descr ""))
+  (lib (name General_SMD)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/General_SMD.pretty)(options "")(descr ""))
+  (lib (name VIA_Workaround)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/VIA_Workaround.pretty)(options "")(descr ""))
+  (lib (name Xtal_SMD)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/Xtal_SMD.pretty)(options "")(descr ""))
+  (lib (name QFP)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/QFP.pretty)(options "")(descr ""))
+  (lib (name SSOP)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/SSOP.pretty)(options "")(descr ""))
+  (lib (name SOIC)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/SOIC.pretty)(options "")(descr ""))
+  (lib (name Connectors_254mm)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/Connectors_254mm.pretty)(options "")(descr ""))
+  (lib (name Connectors_508mm)(type KiCad)(uri ${KIPRJMOD}/../../../kicad-components/Pretty_Footprints/Connectors_508mm.pretty)(options "")(descr ""))
+)

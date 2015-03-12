@@ -1,6 +1,6 @@
-update=07/02/2015 16:27:49
+update=Wed 04 Mar 2015 07:12:23 PM CET
 version=1
-last_client=eeschema
+last_client=kicad
 [general]
 version=1
 [cvpcb]
@@ -51,12 +51,7 @@ LibName19=via_wkaround
 LibName20=np_holes
 [eeschema]
 version=1
-LibDir=../components;../../../kicad-components
-NetFmtName=PcbnewAdvanced
-RptD_X=0
-RptD_Y=100
-RptLab=1
-LabSize=60
+LibDir=../../../kicad-components
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -96,3 +91,5 @@ LibName35=Power/MPS/MPS_DCDC
 LibName36=Connectors/MISC/MISC_CONNECTORS
 LibName37=Oscillator/Xtal/xtals
 LibName38=Passive/passives
+LibName39=Power/power_symbols
+LibName40=Connectors/USB/USB_CONNECTOR
