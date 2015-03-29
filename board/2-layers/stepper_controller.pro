@@ -1,8 +1,6 @@
-update=Wed 04 Mar 2015 07:12:23 PM CET
+update=29/03/2015 01:42:44
 version=1
 last_client=kicad
-[general]
-version=1
 [cvpcb]
 version=1
 NetIExt=net
@@ -93,3 +91,5 @@ LibName37=Oscillator/Xtal/xtals
 LibName38=Passive/passives
 LibName39=Power/power_symbols
 LibName40=Connectors/USB/USB_CONNECTOR
+[general]
+version=1
