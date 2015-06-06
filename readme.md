@@ -7,6 +7,13 @@ point of using FPGA is too provide an easy way to extend the board with daughter
 line and curve machining in CNC.
 
 ##Hardware
-PCB is 4 Layers.
+
+  PCB is 4 Layers.
 
 ##Software
+
+  OpenOCD scripts
+  ---------------
+
+  GDB  : openocd -f scripts/openocd/pmsre.cfg -c "gdb_port 4000"
+  FLASH: openocd -f scripts/openocd/pmsre.cfg -c "program <elf binary> verify reset"
