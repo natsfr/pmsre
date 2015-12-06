@@ -1,3 +1,4 @@
 *.bak
 *-cache.lib
 *.kicad_pcb-bak
+ise_project/*
