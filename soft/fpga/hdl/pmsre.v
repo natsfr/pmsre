@@ -74,7 +74,8 @@ module pmsre(clk, reset, data_in, data_out, addr, read, write,
    assign m_reset = 3'b111;
    assign m_step = { pos_r[2][22], pos_r[1][22], pos_r[0][22] };
    assign m_dir = { inc_cur[2][23], inc_cur[1][23], inc_cur[0][23] };
-   assign stop = |(ctrl_stops & m_stop[5:0] & { m_dir, ~m_dir });
+   assign move = { |inc_cur[2], |inc_cur[1], |inc_cur[0] };
+   assign stop = |(ctrl_stops & m_stop[5:0] & { m_dir, move & ~m_dir });
    assign fault = |(~m_fault & ctrl_men);
 
    assign irq = (ctrl_cirq & !done_empty) | (ctrl_firq & fault);
@@ -154,7 +155,7 @@ module pmsre(clk, reset, data_in, data_out, addr, read, write,
 	   STAT_REGADDR: data_out <= { 6'b011000, cmd_empty, done_empty,
 				       5'b00000, m_stop[5:3],
 				       5'b00000, m_stop[2:0],
-				       5'b00000, m_fault };
+				       5'b00000, ~m_fault };
 	   CTRL_REGADDR: data_out <= { 6'b000000, ctrl_cirq, ctrl_firq,
 				       5'b00000, ctrl_stops[5:3],
 				       5'b00000, ctrl_stops[2:0],
