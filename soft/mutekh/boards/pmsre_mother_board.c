@@ -210,8 +210,8 @@ void main()
   ensure(!device_get_accessor_by_path(&d_cmd_spi, NULL, "spi2", DRIVER_CLASS_SPI_CTRL));
   ensure(!device_get_accessor_by_path(&d_gpio, NULL, "gpio", DRIVER_CLASS_GPIO));
 
-  ensure(!DEVICE_OP(&d_gpio, set_mode, FPGA_DONE_IO, FPGA_DONE_IO, dev_gpio_mask1, DEV_PIN_OPENDRAIN_PULLUP));
-  ensure(!DEVICE_OP(&d_gpio, set_mode, FPGA_INITB_IO, FPGA_INITB_IO, dev_gpio_mask1, DEV_PIN_OPENDRAIN_PULLUP));
+  ensure(!DEVICE_OP(&d_gpio, set_mode, FPGA_DONE_IO, FPGA_DONE_IO, dev_gpio_mask1, DEV_PIN_INPUT_PULLUP));
+  ensure(!DEVICE_OP(&d_gpio, set_mode, FPGA_INITB_IO, FPGA_INITB_IO, dev_gpio_mask1, DEV_PIN_INPUT_PULLUP));
 
   ensure(!DEVICE_OP(&d_gpio, set_mode, FPGA_PROGB_IO, FPGA_PROGB_IO, dev_gpio_mask1, DEV_PIN_PUSHPULL));
   ensure(!DEVICE_OP(&d_gpio, set_output, FPGA_PROGB_IO, FPGA_PROGB_IO, dev_gpio_mask0, dev_gpio_mask0));
@@ -306,6 +306,8 @@ static TERMUI_CON_OPT_DECL(pmsre_opts) =
 
   TERMUI_CON_OPT_INTEGER_RANGE_ENTRY("-a", "--mA", PMSRE_OPT_MAMPS, struct termui_optctx_pmsre_opts, mamps, 1, 0, 2500,
                                TERMUI_CON_OPT_CONSTRAINTS(0, 0))
+
+  TERMUI_CON_LIST_END
 };
 
 static TERMUI_CON_GROUP_DECL(shell_pmsre_subgroup) =
@@ -316,6 +318,8 @@ static TERMUI_CON_GROUP_DECL(shell_pmsre_subgroup) =
 
   TERMUI_CON_ENTRY(shell_pmsre_fpga_load, "fpga_load",
                    )
+
+  TERMUI_CON_LIST_END
 };
 
 MUTEK_SHELL_ROOT_GROUP(shell_pmsre_subgroup, "pmsre")
