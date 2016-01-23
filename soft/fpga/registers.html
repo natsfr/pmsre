@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  <!-- 
-   bfgen -o html -I pmsre.bitfield -O /tmp/pmsre.html
+   bfgen -o html -I pmsre.bfgen -O registers.html
  -->
  <title>BFGen HTML output</title>
  <style media="screen" type="text/css">
@@ -108,8 +108,8 @@ td, th {
       <td>read/write</td>
       <td>0x3c</td>
 </tr>
-  <tr><td><code><a href="#table_fields_len" id="table_regs_len">len</a></code></td>
-      <td>Command schedule</td>
+  <tr><td><code><a href="#table_fields_push" id="table_regs_push">push</a></code></td>
+      <td>Command schedule fifo</td>
       <td>write only</td>
       <td>0x40</td>
 </tr>
@@ -118,8 +118,8 @@ td, th {
       <td>read only</td>
       <td>0x60</td>
 </tr>
-  <tr><td><code><a href="#table_fields_done" id="table_regs_done">done</a></code></td>
-      <td>Completed command</td>
+  <tr><td><code><a href="#table_fields_pop" id="table_regs_pop">pop</a></code></td>
+      <td>Completed command fifo</td>
       <td>read only</td>
       <td>0x80</td>
 </tr>
@@ -137,48 +137,44 @@ td, th {
 </div><a id="table_fields_pos"></a><h3><code>pos<em>N</em></code> - Motor position registers</h3><div class="section">This register holds the motor position value. 
 <h4>Register layout</h4><table class="bfgen_bitfield">
   <tr><th style="width: 3.125%; text-align:center;">31</th><th style="width: 3.125%; text-align:center;">30</th><th style="width: 3.125%; text-align:center;">29</th><th style="width: 3.125%; text-align:center;">28</th><th style="width: 3.125%; text-align:center;">27</th><th style="width: 3.125%; text-align:center;">26</th><th style="width: 3.125%; text-align:center;">25</th><th style="width: 3.125%; text-align:center;">24</th><th style="width: 3.125%; text-align:center;">23</th><th style="width: 3.125%; text-align:center;">22</th><th style="width: 3.125%; text-align:center;">21</th><th style="width: 3.125%; text-align:center;">20</th><th style="width: 3.125%; text-align:center;">19</th><th style="width: 3.125%; text-align:center;">18</th><th style="width: 3.125%; text-align:center;">17</th><th style="width: 3.125%; text-align:center;">16</th><th style="width: 3.125%; text-align:center;">15</th><th style="width: 3.125%; text-align:center;">14</th><th style="width: 3.125%; text-align:center;">13</th><th style="width: 3.125%; text-align:center;">12</th><th style="width: 3.125%; text-align:center;">11</th><th style="width: 3.125%; text-align:center;">10</th><th style="width: 3.125%; text-align:center;">9</th><th style="width: 3.125%; text-align:center;">8</th><th style="width: 3.125%; text-align:center;">7</th><th style="width: 3.125%; text-align:center;">6</th><th style="width: 3.125%; text-align:center;">5</th><th style="width: 3.125%; text-align:center;">4</th><th style="width: 3.125%; text-align:center;">3</th><th style="width: 3.125%; text-align:center;">2</th><th style="width: 3.125%; text-align:center;">1</th><th style="width: 3.125%; text-align:center;">0</th></tr>
-  <tr><td colspan="9" style="text-align:center;"><a href="#bitfield_pos0_int" id="table_pos0_int">int</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_pos0_step" id="table_pos0_step">step</a></td><td colspan="22" style="text-align:center;"><a href="#bitfield_pos0_frac" id="table_pos0_frac">frac</a></td></tr>
+  <tr><td colspan="8" style="background:gray; text-align:center;"><em>unused</em></td><td colspan="1" style="text-align:center;"><a href="#bitfield_pos0_step" id="table_pos0_step">step</a></td><td colspan="23" style="text-align:center;"><a href="#bitfield_pos0_frac" id="table_pos0_frac">frac</a></td></tr>
 </table>
 <h4>Register fields</h4><table class="bfgen_table"><tr><th>Name</th><th>Width</th><th>Long name</th><th>Description</th></tr>
   <tr><td><code><a href="#table_pos0_frac" id="bitfield_pos0_frac">frac</a></code></td>
-      <td>22 bits</td>
+      <td>23 bits</td>
       <td>frac</td>
       <td>Fractionnal part of the motor position. </td></tr>
   <tr><td><code><a href="#table_pos0_step" id="bitfield_pos0_step">step</a></code></td>
       <td>1 bit</td>
       <td>step</td>
       <td>Position bit used to drive the motor step signal. </td></tr>
-  <tr><td><code><a href="#table_pos0_int" id="bitfield_pos0_int">int</a></code></td>
-      <td>9 bits</td>
-      <td>int</td>
-      <td>Integral part of the motor position, not used to drive the motor. </td></tr>
 </table>
 </div><a id="table_fields_inc"></a><h3><code>inc<em>N</em></code> - Motor increment registers</h3><div class="section">This defines the value which will be added to the motor posision during each cycle of the command. The value is actually pushed into the command fifo when the len register is written. 
 <h4>Register layout</h4><table class="bfgen_bitfield">
   <tr><th style="width: 3.125%; text-align:center;">31</th><th style="width: 3.125%; text-align:center;">30</th><th style="width: 3.125%; text-align:center;">29</th><th style="width: 3.125%; text-align:center;">28</th><th style="width: 3.125%; text-align:center;">27</th><th style="width: 3.125%; text-align:center;">26</th><th style="width: 3.125%; text-align:center;">25</th><th style="width: 3.125%; text-align:center;">24</th><th style="width: 3.125%; text-align:center;">23</th><th style="width: 3.125%; text-align:center;">22</th><th style="width: 3.125%; text-align:center;">21</th><th style="width: 3.125%; text-align:center;">20</th><th style="width: 3.125%; text-align:center;">19</th><th style="width: 3.125%; text-align:center;">18</th><th style="width: 3.125%; text-align:center;">17</th><th style="width: 3.125%; text-align:center;">16</th><th style="width: 3.125%; text-align:center;">15</th><th style="width: 3.125%; text-align:center;">14</th><th style="width: 3.125%; text-align:center;">13</th><th style="width: 3.125%; text-align:center;">12</th><th style="width: 3.125%; text-align:center;">11</th><th style="width: 3.125%; text-align:center;">10</th><th style="width: 3.125%; text-align:center;">9</th><th style="width: 3.125%; text-align:center;">8</th><th style="width: 3.125%; text-align:center;">7</th><th style="width: 3.125%; text-align:center;">6</th><th style="width: 3.125%; text-align:center;">5</th><th style="width: 3.125%; text-align:center;">4</th><th style="width: 3.125%; text-align:center;">3</th><th style="width: 3.125%; text-align:center;">2</th><th style="width: 3.125%; text-align:center;">1</th><th style="width: 3.125%; text-align:center;">0</th></tr>
-  <tr><td colspan="8" style="background:gray; text-align:center;"><em>unused</em></td><td colspan="1" style="text-align:center;"><a href="#bitfield_inc0_sign" id="table_inc0_sign">sign</a></td><td colspan="23" style="text-align:center;"><a href="#bitfield_inc0_frac" id="table_inc0_frac">frac</a></td></tr>
+  <tr><td colspan="7" style="background:gray; text-align:center;"><em>unused</em></td><td colspan="1" style="text-align:center;"><a href="#bitfield_inc0_sign" id="table_inc0_sign">sign</a></td><td colspan="24" style="text-align:center;"><a href="#bitfield_inc0_frac" id="table_inc0_frac">frac</a></td></tr>
 </table>
 <h4>Register fields</h4><table class="bfgen_table"><tr><th>Name</th><th>Width</th><th>Long name</th><th>Description</th></tr>
   <tr><td><code><a href="#table_inc0_frac" id="bitfield_inc0_frac">frac</a></code></td>
-      <td>23 bits</td>
+      <td>24 bits</td>
       <td>frac</td>
-      <td>Increment value in Q1.22 format, should not be greater than 1.0 (0x800000). This defines the motor speed during the command. </td></tr>
+      <td>Increment value in Q1.23 format, should not be greater than 1.0 (0x800000). This defines the motor speed during the command. </td></tr>
   <tr><td><code><a href="#table_inc0_sign" id="bitfield_inc0_sign">sign</a></code></td>
       <td>1 bit</td>
       <td>sign</td>
       <td>Increment sign bit, defines the motor direction during the next command. </td></tr>
 </table>
-</div><a id="table_fields_len"></a><h3><code>len</code> - Command schedule register (write only)</h3><div class="section">Writting to this register schedule a command with the specified duration and user id. The increment values of all motors along with the duration and the user id are pushed into the scheduled commands fifo. The command will execute as soon as all previous commands get completed. Up to 4 commands can be queued in the fifo. 
+</div><a id="table_fields_push"></a><h3><code>push</code> - Command schedule fifo register (write only)</h3><div class="section">Writting to this register schedules a command with the specified duration and user id. The increment values of all motors along with the duration and the user id are pushed into the scheduled commands fifo. The command will execute as soon as all previous commands are completed. Execution will be postponed if the fifo of completed commands is full. Both fifos are 4 entries deep. 
 <h4>Register layout</h4><table class="bfgen_bitfield">
   <tr><th style="width: 3.125%; text-align:center;">31</th><th style="width: 3.125%; text-align:center;">30</th><th style="width: 3.125%; text-align:center;">29</th><th style="width: 3.125%; text-align:center;">28</th><th style="width: 3.125%; text-align:center;">27</th><th style="width: 3.125%; text-align:center;">26</th><th style="width: 3.125%; text-align:center;">25</th><th style="width: 3.125%; text-align:center;">24</th><th style="width: 3.125%; text-align:center;">23</th><th style="width: 3.125%; text-align:center;">22</th><th style="width: 3.125%; text-align:center;">21</th><th style="width: 3.125%; text-align:center;">20</th><th style="width: 3.125%; text-align:center;">19</th><th style="width: 3.125%; text-align:center;">18</th><th style="width: 3.125%; text-align:center;">17</th><th style="width: 3.125%; text-align:center;">16</th><th style="width: 3.125%; text-align:center;">15</th><th style="width: 3.125%; text-align:center;">14</th><th style="width: 3.125%; text-align:center;">13</th><th style="width: 3.125%; text-align:center;">12</th><th style="width: 3.125%; text-align:center;">11</th><th style="width: 3.125%; text-align:center;">10</th><th style="width: 3.125%; text-align:center;">9</th><th style="width: 3.125%; text-align:center;">8</th><th style="width: 3.125%; text-align:center;">7</th><th style="width: 3.125%; text-align:center;">6</th><th style="width: 3.125%; text-align:center;">5</th><th style="width: 3.125%; text-align:center;">4</th><th style="width: 3.125%; text-align:center;">3</th><th style="width: 3.125%; text-align:center;">2</th><th style="width: 3.125%; text-align:center;">1</th><th style="width: 3.125%; text-align:center;">0</th></tr>
-  <tr><td colspan="4" style="background:gray; text-align:center;"><em>unused</em></td><td colspan="4" style="text-align:center;"><a href="#bitfield_len_id" id="table_len_id">id</a></td><td colspan="24" style="text-align:center;"><a href="#bitfield_len_cycles" id="table_len_cycles">cycles</a></td></tr>
+  <tr><td colspan="4" style="background:gray; text-align:center;"><em>unused</em></td><td colspan="4" style="text-align:center;"><a href="#bitfield_push_id" id="table_push_id">id</a></td><td colspan="24" style="text-align:center;"><a href="#bitfield_push_cycles" id="table_push_cycles">cycles</a></td></tr>
 </table>
 <h4>Register fields</h4><table class="bfgen_table"><tr><th>Name</th><th>Width</th><th>Long name</th><th>Description</th></tr>
-  <tr><td><code><a href="#table_len_cycles" id="bitfield_len_cycles">cycles</a></code></td>
+  <tr><td><code><a href="#table_push_cycles" id="bitfield_push_cycles">cycles</a></code></td>
       <td>24 bits</td>
       <td>cycles</td>
       <td>Command duration in number of cycles. </td></tr>
-  <tr><td><code><a href="#table_len_id" id="bitfield_len_id">id</a></code></td>
+  <tr><td><code><a href="#table_push_id" id="bitfield_push_id">id</a></code></td>
       <td>4 bits</td>
       <td>id</td>
       <td>This user defined command id will later be reported in the completed commands fifo. </td></tr>
@@ -202,26 +198,30 @@ td, th {
       <td>state</td>
       <td>Motor driving status. </td></tr>
 </table>
-</div><a id="table_fields_done"></a><h3><code>done</code> - Completed command register (read only)</h3><div class="section">This pops a command status from the fifo of completed commands. Up to 4 status can be queued in the fifo. 
+</div><a id="table_fields_pop"></a><h3><code>pop</code> - Completed command fifo register (read only)</h3><div class="section">This pops a command status from the fifo of completed commands. Up to 4 status can be queued in the fifo. 
 <h4>Register layout</h4><table class="bfgen_bitfield">
   <tr><th style="width: 3.125%; text-align:center;">31</th><th style="width: 3.125%; text-align:center;">30</th><th style="width: 3.125%; text-align:center;">29</th><th style="width: 3.125%; text-align:center;">28</th><th style="width: 3.125%; text-align:center;">27</th><th style="width: 3.125%; text-align:center;">26</th><th style="width: 3.125%; text-align:center;">25</th><th style="width: 3.125%; text-align:center;">24</th><th style="width: 3.125%; text-align:center;">23</th><th style="width: 3.125%; text-align:center;">22</th><th style="width: 3.125%; text-align:center;">21</th><th style="width: 3.125%; text-align:center;">20</th><th style="width: 3.125%; text-align:center;">19</th><th style="width: 3.125%; text-align:center;">18</th><th style="width: 3.125%; text-align:center;">17</th><th style="width: 3.125%; text-align:center;">16</th><th style="width: 3.125%; text-align:center;">15</th><th style="width: 3.125%; text-align:center;">14</th><th style="width: 3.125%; text-align:center;">13</th><th style="width: 3.125%; text-align:center;">12</th><th style="width: 3.125%; text-align:center;">11</th><th style="width: 3.125%; text-align:center;">10</th><th style="width: 3.125%; text-align:center;">9</th><th style="width: 3.125%; text-align:center;">8</th><th style="width: 3.125%; text-align:center;">7</th><th style="width: 3.125%; text-align:center;">6</th><th style="width: 3.125%; text-align:center;">5</th><th style="width: 3.125%; text-align:center;">4</th><th style="width: 3.125%; text-align:center;">3</th><th style="width: 3.125%; text-align:center;">2</th><th style="width: 3.125%; text-align:center;">1</th><th style="width: 3.125%; text-align:center;">0</th></tr>
-  <tr><td colspan="3" style="background:gray; text-align:center;"><em>unused</em></td><td colspan="1" style="text-align:center;"><a href="#bitfield_done_valid" id="table_done_valid">valid</a></td><td colspan="4" style="text-align:center;"><a href="#bitfield_done_id" id="table_done_id">id</a></td><td colspan="24" style="text-align:center;"><a href="#bitfield_done_rem" id="table_done_rem">rem</a></td></tr>
+  <tr><td colspan="1" style="text-align:center;"><a href="#bitfield_pop_valid" id="table_pop_valid">valid</a></td><td colspan="2" style="background:gray; text-align:center;"><em>unused</em></td><td colspan="1" style="text-align:center;"><a href="#bitfield_pop_flush" id="table_pop_flush">flush</a></td><td colspan="4" style="text-align:center;"><a href="#bitfield_pop_id" id="table_pop_id">id</a></td><td colspan="24" style="text-align:center;"><a href="#bitfield_pop_rem" id="table_pop_rem">rem</a></td></tr>
 </table>
 <h4>Register fields</h4><table class="bfgen_table"><tr><th>Name</th><th>Width</th><th>Long name</th><th>Description</th></tr>
-  <tr><td><code><a href="#table_done_rem" id="bitfield_done_rem">rem</a></code></td>
+  <tr><td><code><a href="#table_pop_rem" id="bitfield_pop_rem">rem</a></code></td>
       <td>24 bits</td>
       <td>rem</td>
-      <td>Number of remaining cycles when the command ended. This is zero when the command completed successfully. </td></tr>
-  <tr><td><code><a href="#table_done_id" id="bitfield_done_id">id</a></code></td>
+      <td>Number of remaining cycles when the command ended. </td></tr>
+  <tr><td><code><a href="#table_pop_id" id="bitfield_pop_id">id</a></code></td>
       <td>4 bits</td>
       <td>id</td>
       <td>The user defined id of the completed command. </td></tr>
-  <tr><td><code><a href="#table_done_valid" id="bitfield_done_valid">valid</a></code></td>
+  <tr><td><code><a href="#table_pop_flush" id="bitfield_pop_flush">flush</a></code></td>
+      <td>1 bit</td>
+      <td>flush</td>
+      <td>This indicates that the command has been flushed due to a fault or stop condition. Any new command will be flushed until the fifo of completed commands becomes empty. </td></tr>
+  <tr><td><code><a href="#table_pop_valid" id="bitfield_pop_valid">valid</a></code></td>
       <td>1 bit</td>
       <td>valid</td>
-      <td>This indicates that the fifo was not empty (the rem and id fields are valid). </td></tr>
+      <td>This indicates that the fifo was not empty (other fields are valid). </td></tr>
 </table>
-</div><a id="table_fields_stat"></a><h3><code>stat</code> - Status register (read only)</h3><div class="section">This reports various device status information A motor fault on an enabled motor will make any command terminate early. 
+</div><a id="table_fields_stat"></a><h3><code>stat</code> - Status register (read only)</h3><div class="section">This reports various device status information. A motor fault on an enabled motor will flush all commands. 
 <h4>Register layout</h4><table class="bfgen_bitfield">
   <tr><th style="width: 3.125%; text-align:center;">31</th><th style="width: 3.125%; text-align:center;">30</th><th style="width: 3.125%; text-align:center;">29</th><th style="width: 3.125%; text-align:center;">28</th><th style="width: 3.125%; text-align:center;">27</th><th style="width: 3.125%; text-align:center;">26</th><th style="width: 3.125%; text-align:center;">25</th><th style="width: 3.125%; text-align:center;">24</th><th style="width: 3.125%; text-align:center;">23</th><th style="width: 3.125%; text-align:center;">22</th><th style="width: 3.125%; text-align:center;">21</th><th style="width: 3.125%; text-align:center;">20</th><th style="width: 3.125%; text-align:center;">19</th><th style="width: 3.125%; text-align:center;">18</th><th style="width: 3.125%; text-align:center;">17</th><th style="width: 3.125%; text-align:center;">16</th><th style="width: 3.125%; text-align:center;">15</th><th style="width: 3.125%; text-align:center;">14</th><th style="width: 3.125%; text-align:center;">13</th><th style="width: 3.125%; text-align:center;">12</th><th style="width: 3.125%; text-align:center;">11</th><th style="width: 3.125%; text-align:center;">10</th><th style="width: 3.125%; text-align:center;">9</th><th style="width: 3.125%; text-align:center;">8</th><th style="width: 3.125%; text-align:center;">7</th><th style="width: 3.125%; text-align:center;">6</th><th style="width: 3.125%; text-align:center;">5</th><th style="width: 3.125%; text-align:center;">4</th><th style="width: 3.125%; text-align:center;">3</th><th style="width: 3.125%; text-align:center;">2</th><th style="width: 3.125%; text-align:center;">1</th><th style="width: 3.125%; text-align:center;">0</th></tr>
   <tr><td colspan="3" style="text-align:center;"><a href="#bitfield_stat_mcount" id="table_stat_mcount">mcount</a></td><td colspan="3" style="background:gray; text-align:center;"><em>unused</em></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_sempty" id="table_stat_sempty">sempty</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_dempty" id="table_stat_dempty">dempty</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_dstop7" id="table_stat_dstop7">dstop7</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_dstop6" id="table_stat_dstop6">dstop6</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_dstop5" id="table_stat_dstop5">dstop5</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_dstop4" id="table_stat_dstop4">dstop4</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_dstop3" id="table_stat_dstop3">dstop3</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_dstop2" id="table_stat_dstop2">dstop2</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_dstop1" id="table_stat_dstop1">dstop1</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_dstop0" id="table_stat_dstop0">dstop0</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_istop7" id="table_stat_istop7">istop7</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_istop6" id="table_stat_istop6">istop6</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_istop5" id="table_stat_istop5">istop5</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_istop4" id="table_stat_istop4">istop4</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_istop3" id="table_stat_istop3">istop3</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_istop2" id="table_stat_istop2">istop2</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_istop1" id="table_stat_istop1">istop1</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_istop0" id="table_stat_istop0">istop0</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_fault7" id="table_stat_fault7">fault7</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_fault6" id="table_stat_fault6">fault6</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_fault5" id="table_stat_fault5">fault5</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_fault4" id="table_stat_fault4">fault4</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_fault3" id="table_stat_fault3">fault3</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_fault2" id="table_stat_fault2">fault2</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_fault1" id="table_stat_fault1">fault1</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_stat_fault0" id="table_stat_fault0">fault0</a></td></tr>
@@ -230,35 +230,35 @@ td, th {
   <tr><td><code><a href="#table_stat_fault0" id="bitfield_stat_fault0">fault0</a></code></td>
       <td>1 bit</td>
       <td>fault</td>
-      <td>Motor fault condition reported by the motor driver. </td></tr>
+      <td>A motor fault condition is currently reported by the motor driver. </td></tr>
   <tr><td><code><a href="#table_stat_fault1" id="bitfield_stat_fault1">fault1</a></code></td>
       <td>1 bit</td>
       <td>fault</td>
-      <td>Motor fault condition reported by the motor driver. </td></tr>
+      <td>A motor fault condition is currently reported by the motor driver. </td></tr>
   <tr><td><code><a href="#table_stat_fault2" id="bitfield_stat_fault2">fault2</a></code></td>
       <td>1 bit</td>
       <td>fault</td>
-      <td>Motor fault condition reported by the motor driver. </td></tr>
+      <td>A motor fault condition is currently reported by the motor driver. </td></tr>
   <tr><td><code><a href="#table_stat_fault3" id="bitfield_stat_fault3">fault3</a></code></td>
       <td>1 bit</td>
       <td>fault</td>
-      <td>Motor fault condition reported by the motor driver. </td></tr>
+      <td>A motor fault condition is currently reported by the motor driver. </td></tr>
   <tr><td><code><a href="#table_stat_fault4" id="bitfield_stat_fault4">fault4</a></code></td>
       <td>1 bit</td>
       <td>fault</td>
-      <td>Motor fault condition reported by the motor driver. </td></tr>
+      <td>A motor fault condition is currently reported by the motor driver. </td></tr>
   <tr><td><code><a href="#table_stat_fault5" id="bitfield_stat_fault5">fault5</a></code></td>
       <td>1 bit</td>
       <td>fault</td>
-      <td>Motor fault condition reported by the motor driver. </td></tr>
+      <td>A motor fault condition is currently reported by the motor driver. </td></tr>
   <tr><td><code><a href="#table_stat_fault6" id="bitfield_stat_fault6">fault6</a></code></td>
       <td>1 bit</td>
       <td>fault</td>
-      <td>Motor fault condition reported by the motor driver. </td></tr>
+      <td>A motor fault condition is currently reported by the motor driver. </td></tr>
   <tr><td><code><a href="#table_stat_fault7" id="bitfield_stat_fault7">fault7</a></code></td>
       <td>1 bit</td>
       <td>fault</td>
-      <td>Motor fault condition reported by the motor driver. </td></tr>
+      <td>A motor fault condition is currently reported by the motor driver. </td></tr>
   <tr><td><code><a href="#table_stat_istop0" id="bitfield_stat_istop0">istop0</a></code></td>
       <td>1 bit</td>
       <td>istop</td>
@@ -336,10 +336,10 @@ td, th {
       <td>mcount</td>
       <td>Number of implemented motors minus one. </td></tr>
 </table>
-</div><a id="table_fields_ctrl"></a><h3><code>ctrl</code> - Control register</h3><div class="section">Enable motor drivers and end-stop inputs watching. Each motor has 2 associated end-stop, one for each direction. Watched end-stops will make commands moving the motor in the wrong direction terminate early. 
+</div><a id="table_fields_ctrl"></a><h3><code>ctrl</code> - Control register</h3><div class="section">Enable motor drivers and end-stop inputs watching. Each motor has 2 associated end-stop, one for each direction. Watched end-stops will make any move in the wrong direction flush all commands. 
 <h4>Register layout</h4><table class="bfgen_bitfield">
   <tr><th style="width: 3.125%; text-align:center;">31</th><th style="width: 3.125%; text-align:center;">30</th><th style="width: 3.125%; text-align:center;">29</th><th style="width: 3.125%; text-align:center;">28</th><th style="width: 3.125%; text-align:center;">27</th><th style="width: 3.125%; text-align:center;">26</th><th style="width: 3.125%; text-align:center;">25</th><th style="width: 3.125%; text-align:center;">24</th><th style="width: 3.125%; text-align:center;">23</th><th style="width: 3.125%; text-align:center;">22</th><th style="width: 3.125%; text-align:center;">21</th><th style="width: 3.125%; text-align:center;">20</th><th style="width: 3.125%; text-align:center;">19</th><th style="width: 3.125%; text-align:center;">18</th><th style="width: 3.125%; text-align:center;">17</th><th style="width: 3.125%; text-align:center;">16</th><th style="width: 3.125%; text-align:center;">15</th><th style="width: 3.125%; text-align:center;">14</th><th style="width: 3.125%; text-align:center;">13</th><th style="width: 3.125%; text-align:center;">12</th><th style="width: 3.125%; text-align:center;">11</th><th style="width: 3.125%; text-align:center;">10</th><th style="width: 3.125%; text-align:center;">9</th><th style="width: 3.125%; text-align:center;">8</th><th style="width: 3.125%; text-align:center;">7</th><th style="width: 3.125%; text-align:center;">6</th><th style="width: 3.125%; text-align:center;">5</th><th style="width: 3.125%; text-align:center;">4</th><th style="width: 3.125%; text-align:center;">3</th><th style="width: 3.125%; text-align:center;">2</th><th style="width: 3.125%; text-align:center;">1</th><th style="width: 3.125%; text-align:center;">0</th></tr>
-  <tr><td colspan="6" style="background:gray; text-align:center;"><em>unused</em></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_cirq" id="table_ctrl_cirq">cirq</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_firq" id="table_ctrl_firq">firq</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop7" id="table_ctrl_dstop7">dstop7</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop6" id="table_ctrl_dstop6">dstop6</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop5" id="table_ctrl_dstop5">dstop5</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop4" id="table_ctrl_dstop4">dstop4</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop3" id="table_ctrl_dstop3">dstop3</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop2" id="table_ctrl_dstop2">dstop2</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop1" id="table_ctrl_dstop1">dstop1</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop0" id="table_ctrl_dstop0">dstop0</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop7" id="table_ctrl_istop7">istop7</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop6" id="table_ctrl_istop6">istop6</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop5" id="table_ctrl_istop5">istop5</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop4" id="table_ctrl_istop4">istop4</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop3" id="table_ctrl_istop3">istop3</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop2" id="table_ctrl_istop2">istop2</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop1" id="table_ctrl_istop1">istop1</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop0" id="table_ctrl_istop0">istop0</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable7" id="table_ctrl_enable7">enable7</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable6" id="table_ctrl_enable6">enable6</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable5" id="table_ctrl_enable5">enable5</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable4" id="table_ctrl_enable4">enable4</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable3" id="table_ctrl_enable3">enable3</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable2" id="table_ctrl_enable2">enable2</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable1" id="table_ctrl_enable1">enable1</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable0" id="table_ctrl_enable0">enable0</a></td></tr>
+  <tr><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_zero" id="table_ctrl_zero">zero</a></td><td colspan="5" style="background:gray; text-align:center;"><em>unused</em></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_cirq" id="table_ctrl_cirq">cirq</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_firq" id="table_ctrl_firq">firq</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop7" id="table_ctrl_dstop7">dstop7</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop6" id="table_ctrl_dstop6">dstop6</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop5" id="table_ctrl_dstop5">dstop5</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop4" id="table_ctrl_dstop4">dstop4</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop3" id="table_ctrl_dstop3">dstop3</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop2" id="table_ctrl_dstop2">dstop2</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop1" id="table_ctrl_dstop1">dstop1</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_dstop0" id="table_ctrl_dstop0">dstop0</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop7" id="table_ctrl_istop7">istop7</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop6" id="table_ctrl_istop6">istop6</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop5" id="table_ctrl_istop5">istop5</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop4" id="table_ctrl_istop4">istop4</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop3" id="table_ctrl_istop3">istop3</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop2" id="table_ctrl_istop2">istop2</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop1" id="table_ctrl_istop1">istop1</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_istop0" id="table_ctrl_istop0">istop0</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable7" id="table_ctrl_enable7">enable7</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable6" id="table_ctrl_enable6">enable6</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable5" id="table_ctrl_enable5">enable5</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable4" id="table_ctrl_enable4">enable4</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable3" id="table_ctrl_enable3">enable3</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable2" id="table_ctrl_enable2">enable2</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable1" id="table_ctrl_enable1">enable1</a></td><td colspan="1" style="text-align:center;"><a href="#bitfield_ctrl_enable0" id="table_ctrl_enable0">enable0</a></td></tr>
 </table>
 <h4>Register fields</h4><table class="bfgen_table"><tr><th>Name</th><th>Width</th><th>Long name</th><th>Description</th></tr>
   <tr><td><code><a href="#table_ctrl_enable0" id="bitfield_ctrl_enable0">enable0</a></code></td>
@@ -441,11 +441,15 @@ td, th {
   <tr><td><code><a href="#table_ctrl_firq" id="bitfield_ctrl_firq">firq</a></code></td>
       <td>1 bit</td>
       <td>firq</td>
-      <td>Raise irq output on enabled motor fault. </td></tr>
+      <td>Raise irq output on fault condition on an enabled motors. </td></tr>
   <tr><td><code><a href="#table_ctrl_cirq" id="bitfield_ctrl_cirq">cirq</a></code></td>
       <td>1 bit</td>
       <td>cirq</td>
       <td>Raise irq output on completed fifo not empty. </td></tr>
+  <tr><td><code><a href="#table_ctrl_zero" id="bitfield_ctrl_zero">zero</a></code></td>
+      <td>1 bit</td>
+      <td>zero</td>
+      <td>Clear the position registers when a command ends </td></tr>
 </table>
 </div></body></html>
 
