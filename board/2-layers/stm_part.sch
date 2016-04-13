@@ -34,12 +34,10 @@ LIBS:STM32F103RG_LQFP64
 LIBS:xc3s200a-vq100
 LIBS:DRV8825
 LIBS:MPS_DCDC
-LIBS:MISC_CONNECTORS
 LIBS:xtals
 LIBS:passives
 LIBS:power_symbols
 LIBS:USB_CONNECTOR
-LIBS:stepper_controller-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -730,7 +728,7 @@ Wire Wire Line
 Text HLabel 5550 2950 1    25   Output ~ 0
 FPGA_PROG_B
 Text HLabel 6500 4600 2    25   Output ~ 0
-FPGA_COM_CS
+FPGA_DAC_CS
 Wire Wire Line
 	6400 4600 6500 4600
 Text HLabel 6500 4550 2    25   Output ~ 0
@@ -976,4 +974,12 @@ Wire Wire Line
 	4500 5350 4550 5350
 Wire Wire Line
 	4550 5350 4550 5500
+Wire Wire Line
+	5250 4350 5100 4350
+Wire Wire Line
+	5250 4300 5100 4300
+Text HLabel 5100 4350 0    25   Output ~ 0
+FPGA_COM_CS
+Text HLabel 5100 4300 0    25   Input ~ 0
+FPGA_IRQ
 $EndSCHEMATC

@@ -34,12 +34,10 @@ LIBS:STM32F103RG_LQFP64
 LIBS:xc3s200a-vq100
 LIBS:DRV8825
 LIBS:MPS_DCDC
-LIBS:MISC_CONNECTORS
 LIBS:xtals
 LIBS:passives
 LIBS:power_symbols
 LIBS:USB_CONNECTOR
-LIBS:stepper_controller-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -792,7 +790,7 @@ COM_MOSI
 Text HLabel 7350 1150 0    25   Output ~ 0
 COM_MISO
 Text HLabel 7350 1400 0    25   Input ~ 0
-COM_CS
+DAC_CS
 Text HLabel 7350 1450 0    25   Input ~ 0
 COM_CLK
 Wire Wire Line
@@ -1019,4 +1017,12 @@ Wire Wire Line
 	4350 2300 4500 2300
 Wire Wire Line
 	4350 2350 4500 2350
+Text HLabel 7350 1550 0    25   Input ~ 0
+COM_CS
+Text HLabel 7350 1500 0    25   Output ~ 0
+IRQ
+Wire Wire Line
+	7450 1500 7350 1500
+Wire Wire Line
+	7350 1550 7450 1550
 $EndSCHEMATC
