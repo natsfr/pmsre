@@ -3,7 +3,7 @@
 ***************************************/
 
 /*
-   bfgen -o cdefs -I pmsre.bfgen -O pmsre_regs.h
+   bfgen -I pmsre.bfgen -O pmsre_regs.h -o cdefs
 */
 
 #ifndef _PMSRE_BFGEN_DEFS_
@@ -33,12 +33,12 @@
    @multiple */
   #define PMSRE_INC_SIGN                           0x01000000
 
-/** Writting to this register schedules a command with the specified duration and
-   user id. The increment values of all motors along with the duration and the
-   user id are pushed into the scheduled commands fifo. The command will execute
-   as soon as all previous commands are completed. Execution will be postponed if
-   the fifo of completed commands is full. Both fifos are 4 entries deep.
-   @multiple */
+/** Writting to this register schedules a command with the specified duration,
+   user id and speed. The increment values of all motors along with this register
+   are pushed into the scheduled commands fifo. The command will execute as soon
+   as all previous commands are completed. Execution will be postponed if the
+   fifo of completed commands is full. Both fifos are 4 entries deep. @multiple
+   */
 #define PMSRE_PUSH_ADDR                              0x00000040
 /** Command duration in number of cycles. @multiple */
   #define PMSRE_PUSH_CYCLES(v)                     ((v) << 0)
@@ -49,6 +49,10 @@
   #define PMSRE_PUSH_ID(v)                         ((v) << 24)
   #define PMSRE_PUSH_ID_SET(x, v)                  do { (x) = (((x) & ~0xf000000) | ((v) << 24)); } while(0)
   #define PMSRE_PUSH_ID_GET(x)                     (((x) >> 24) & 0xf)
+/** Command processing speed encoded as 2^-speed @multiple */
+  #define PMSRE_PUSH_SPEED(v)                      ((v) << 28)
+  #define PMSRE_PUSH_SPEED_SET(x, v)               do { (x) = (((x) & ~0xf0000000) | ((v) << 28)); } while(0)
+  #define PMSRE_PUSH_SPEED_GET(x)                  (((x) >> 28) & 0xf)
 
 /** This reports the state, user id and remaining cycles of the running command.
    @multiple */
@@ -107,10 +111,8 @@
   #define PMSRE_STAT_DEMPTY                        0x01000000
 /** Scheduled commands fifo is empty. @multiple */
   #define PMSRE_STAT_SEMPTY                        0x02000000
-/** Number of implemented motors minus one. @multiple */
-  #define PMSRE_STAT_MCOUNT(v)                     ((v) << 29)
-  #define PMSRE_STAT_MCOUNT_SET(x, v)              do { (x) = (((x) & ~0xe0000000) | ((v) << 29)); } while(0)
-  #define PMSRE_STAT_MCOUNT_GET(x)                 (((x) >> 29) & 0x7)
+/** Emergency stop input is active @multiple */
+  #define PMSRE_STAT_STOP                          0x04000000
 
 /** Enable motor drivers and end-stop inputs watching. Each motor has 2
    associated end-stop, one for each direction. Watched end-stops will make any
@@ -129,8 +131,25 @@
   #define PMSRE_CTRL_FIRQ                          0x01000000
 /** Raise irq output on completed fifo not empty. @multiple */
   #define PMSRE_CTRL_CIRQ                          0x02000000
+/** Force flush of any scheduled commands when set @multiple */
+  #define PMSRE_CTRL_FLUSH                         0x40000000
 /** Clear the position registers when a command ends @multiple */
   #define PMSRE_CTRL_ZERO                          0x80000000
+
+/** Device indentification register @multiple */
+#define PMSRE_INFO_ADDR                              0x000000e0
+/** Always reads as 0x504d @multiple */
+  #define PMSRE_INFO_IDENT(v)                      ((v) << 0)
+  #define PMSRE_INFO_IDENT_SET(x, v)               do { (x) = (((x) & ~0xffff) | ((v) << 0)); } while(0)
+  #define PMSRE_INFO_IDENT_GET(x)                  (((x) >> 0) & 0xffff)
+/** Number of implemented motors minus one. @multiple */
+  #define PMSRE_INFO_MCOUNT(v)                     ((v) << 16)
+  #define PMSRE_INFO_MCOUNT_SET(x, v)              do { (x) = (((x) & ~0x70000) | ((v) << 16)); } while(0)
+  #define PMSRE_INFO_MCOUNT_GET(x)                 (((x) >> 16) & 0x7)
+/** Design revision number @multiple */
+  #define PMSRE_INFO_REVISION(v)                   ((v) << 24)
+  #define PMSRE_INFO_REVISION_SET(x, v)            do { (x) = (((x) & ~0xff000000) | ((v) << 24)); } while(0)
+  #define PMSRE_INFO_REVISION_GET(x)               (((x) >> 24) & 0xff)
 
 #endif
 

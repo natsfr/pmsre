@@ -1,0 +1,20 @@
+
+=== OpenOCD ===
+
+cd mutekh/
+make BUILD=stm32-f103rg:shell CONF=~/pmsre/soft/mutekh/boards/config
+openocd -f interface/ftdi/dp_busblaster.cfg -f target/stm32f1x.cfg -c init -c targets -c halt -c "flash write_image erase pmsre-stm32-f1.out" -c reset run -c shutdown
+
+=== Segger ===
+
+cd mutekh/
+make BUILD=stm32-f103rg:shell:binary CONF=~/pmsre/soft/mutekh/boards/config TARGET_EXT=bin
+( echo 'device STM32F103RG' ; echo 'loadbin pmsre-stm32-f1.bin 0' ; echo 'r' ; echo 'exit' ) | JLinkExe
+
+==============
+
+Flashing may fail when the mcu is idle, run the
+follwing command in the mutekh shell in this case:
+
+dev.timer.wait --timer-dev timer* --msec 10000 --busy-wait
+

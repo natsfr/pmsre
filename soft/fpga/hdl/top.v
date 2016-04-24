@@ -7,6 +7,7 @@ module top(
 	   input 	cs,
 	   input [2:0] 	m_fault,
 	   input [5:0] 	m_stop,
+	   input 	stop,
 
 	   inout 	miso,
 
@@ -71,6 +72,7 @@ module top(
 	       .m_step(m_step),
 	       .m_fault(m_fault),
 	       .m_stop(m_stop),
+	       .em_stop(stop),
 	       .irq(irq)
 	       );
 

@@ -34,8 +34,8 @@ align: 32
   longname: Command schedule fifo
   address: 0x40
   direction: w
-  doc: Writting to this register schedules a command with the specified duration and user id.
-  doc: The increment values of all motors along with the duration and the user id are pushed into the scheduled commands fifo.
+  doc: Writting to this register schedules a command with the specified duration, user id and speed.
+  doc: The increment values of all motors along with this register are pushed into the scheduled commands fifo.
   doc: The command will execute as soon as all previous commands are completed.
   doc: Execution will be postponed if the fifo of completed commands is full. Both fifos are 4 entries deep.
 
@@ -44,6 +44,9 @@ align: 32
 
   %%id: 24-27
     doc: This user defined command id will later be reported in the completed commands fifo.
+
+  %%speed: 31-28
+    doc: Command processing speed encoded as 2^-speed
 
 %cur: 32
   longname: Current command
@@ -108,8 +111,8 @@ align: 32
   %%sempty: 25-25
     doc: Scheduled commands fifo is empty.
 
-  %%mcount: 31-29
-    doc: Number of implemented motors minus one.
+  %%stop: 26-26
+    doc: Emergency stop input is active
 
 %ctrl: 32
   longname: Control
@@ -137,5 +140,24 @@ align: 32
   %%cirq: 25-25
     doc: Raise irq output on completed fifo not empty.
 
+  %%flush: 30-30
+    doc: Force flush of any scheduled commands when set
+
   %%zero: 31-31
     doc: Clear the position registers when a command ends
+
+%info: 32
+  longname: Device information
+  address: 0xe0
+  direction: r
+  doc: Device indentification register
+
+  %%revision: 31-24
+    doc: Design revision number
+
+  %%mcount: 18-16
+    doc: Number of implemented motors minus one.
+
+  %%ident: 15-0
+    doc: Always reads as 0x504d
+
