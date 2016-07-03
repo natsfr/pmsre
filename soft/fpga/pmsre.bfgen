@@ -9,14 +9,11 @@ align: 32
   count: 8
   doc: This register holds the motor position value.
 
-  %%frac: 0-21
+  %%frac: 0-22
     doc: Fractionnal part of the motor position.
 
-  %%step: 22-22
+  %%step: 23-23
     doc: Position bit used to drive the motor step signal.
-
-  %%int: 23-31
-    doc: Integral part of the motor position, not used to drive the motor.
 
 %inc: 32
   longname: Motor increment
@@ -26,26 +23,30 @@ align: 32
   doc: This defines the value which will be added to the motor posision during each cycle of the command.
   doc: The value is actually pushed into the command fifo when the len register is written.
 
-  %%frac: 0-22
-    doc: Increment value in Q1.22 format, should not be greater than 1.0 (0x800000).
+  %%frac: 0-23
+    doc: Increment value in Q1.23 format, should not be greater than 1.0 (0x800000).
     doc: This defines the motor speed during the command.
 
-  %%sign: 23-23
+  %%sign: 24-24
     doc: Increment sign bit, defines the motor direction during the next command.
 
-%len: 32
-  longname: Command schedule
+%push: 32
+  longname: Command schedule fifo
   address: 0x40
   direction: w
-  doc: Writting to this register schedule a command with the specified duration and user id.
-  doc: The increment values of all motors along with the duration and the user id are pushed into the scheduled commands fifo.
-  doc: The command will execute as soon as all previous commands get completed. Up to 4 commands can be queued in the fifo.
+  doc: Writting to this register schedules a command with the specified duration, user id and speed.
+  doc: The increment values of all motors along with this register are pushed into the scheduled commands fifo.
+  doc: The command will execute as soon as all previous commands are completed.
+  doc: Execution will be postponed if the fifo of completed commands is full. Both fifos are 4 entries deep.
 
   %%cycles: 0-23
     doc: Command duration in number of cycles.
 
   %%id: 24-27
     doc: This user defined command id will later be reported in the completed commands fifo.
+
+  %%speed: 31-28
+    doc: Command processing speed encoded as 2^-speed
 
 %cur: 32
   longname: Current command
@@ -65,8 +66,8 @@ align: 32
     0b01: running
     0b10: done
 
-%done: 32
-  longname: Completed command
+%pop: 32
+  longname: Completed command fifo
   address: 0x80
   direction: r
   doc: This pops a command status from the fifo of completed commands.
@@ -74,23 +75,26 @@ align: 32
 
   %%rem: 0-23
     doc: Number of remaining cycles when the command ended.
-    doc: This is zero when the command completed successfully.
 
   %%id: 24-27
     doc: The user defined id of the completed command.
 
-  %%valid: 28-28
-    doc: This indicates that the fifo was not empty (the rem and id fields are valid).
+  %%flush: 28-28
+    doc: This indicates that the command has been flushed due to a fault or stop condition.
+    doc: Any new command will be flushed until the fifo of completed commands becomes empty.
+
+  %%valid: 31-31
+    doc: This indicates that the fifo was not empty (other fields are valid).
 
 %stat: 32
   longname: Status
   address: 0xa0
   direction: r
-  doc: This reports various device status information
-  doc: A motor fault on an enabled motor will make any command terminate early.
+  doc: This reports various device status information.
+  doc: A motor fault on an enabled motor will flush all commands.
 
   %%fault: 0-0
-    doc: Motor fault condition reported by the motor driver.
+    doc: A motor fault condition is currently reported by the motor driver.
     count: 8
 
   %%istop: 8-8
@@ -107,8 +111,8 @@ align: 32
   %%sempty: 25-25
     doc: Scheduled commands fifo is empty.
 
-  %%mcount: 31-29
-    doc: Number of implemented motors minus one.
+  %%stop: 26-26
+    doc: Emergency stop input is active
 
 %ctrl: 32
   longname: Control
@@ -116,7 +120,7 @@ align: 32
   direction: rw
   doc: Enable motor drivers and end-stop inputs watching.
   doc: Each motor has 2 associated end-stop, one for each direction.
-  doc: Watched end-stops will make commands moving the motor in the wrong direction terminate early.
+  doc: Watched end-stops will make any move in the wrong direction flush all commands.
 
   %%enable: 0-0
     doc: Enable motor driver.
@@ -131,8 +135,29 @@ align: 32
     count: 8
 
   %%firq: 24-24
-    doc: Raise irq output on enabled motor fault.
+    doc: Raise irq output on fault condition on an enabled motors.
 
   %%cirq: 25-25
     doc: Raise irq output on completed fifo not empty.
+
+  %%flush: 30-30
+    doc: Force flush of any scheduled commands when set
+
+  %%zero: 31-31
+    doc: Clear the position registers when a command ends
+
+%info: 32
+  longname: Device information
+  address: 0xe0
+  direction: r
+  doc: Device indentification register
+
+  %%revision: 31-24
+    doc: Design revision number
+
+  %%mcount: 18-16
+    doc: Number of implemented motors minus one.
+
+  %%ident: 15-0
+    doc: Always reads as 0x504d
 

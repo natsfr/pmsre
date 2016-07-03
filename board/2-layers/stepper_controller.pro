@@ -1,6 +1,6 @@
-update=29/03/2015 01:42:44
+update=Sat 06 Jun 2015 08:26:07 PM CEST
 version=1
-last_client=kicad
+last_client=eeschema
 [cvpcb]
 version=1
 NetIExt=net
@@ -47,9 +47,16 @@ LibName17=SMD_OSC
 LibName18=LQFP64
 LibName19=via_wkaround
 LibName20=np_holes
+[general]
+version=1
 [eeschema]
 version=1
 LibDir=../../../kicad-components
+NetFmtName=
+RptD_X=0
+RptD_Y=100
+RptLab=1
+LabSize=60
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -91,5 +98,3 @@ LibName37=Oscillator/Xtal/xtals
 LibName38=Passive/passives
 LibName39=Power/power_symbols
 LibName40=Connectors/USB/USB_CONNECTOR
-[general]
-version=1

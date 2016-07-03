@@ -5,28 +5,31 @@
 #include <device/resources.h>
 #include <device/irq.h>
 #include <device/class/iomux.h>
-#include <device/class/clock.h>
+#include <device/clock.h>
+#include <device/class/cmu.h>
 #include <device/class/uart.h>
 #include <device/class/spi.h>
 #include <device/class/gpio.h>
 #include <mutek/console.h>
+#include <mutek/printk.h>
 
-#include <arch/stm32_irq.h>
-#include <arch/stm32_memory_map.h>
+#include <arch/stm32/f1/irq.h>
+#include <arch/stm32/f1/periph.h>
 #include <hexo/iospace.h>
 
 /* CPU */
 
 DEV_DECLARE_STATIC(cpu_dev, "cpu", DEVICE_FLAG_CPU, arm32m_drv,
                    DEV_STATIC_RES_ID(0, 0),
+                   DEV_STATIC_RES_FREQ(64000000, 1),
                    );
 
 #include <hexo/endian.h>
 #include <hexo/iospace.h>
-#include <arch/stm32f1xx_rcc.h>
+#include <arch/stm32/f1/rcc.h>
 #include <mutek/startup.h>
 
-#include "fpga.c"
+#include "fpga.h"
 
 #define __IO volatile
 
@@ -176,11 +179,13 @@ DEV_DECLARE_STATIC(spi2_dev, "spi2", 0, stm32_spi_drv,
 
 DEV_DECLARE_STATIC(timer4_dev, "timer4", 0, stm32_timer_drv,
                    DEV_STATIC_RES_MEM(STM32_TIM4_ADDR, STM32_TIM4_ADDR + STM32_TIM4_SIZE),
+                   DEV_STATIC_RES_FREQ(64000000, 1),
 
                    DEV_STATIC_RES_DEV_ICU("/cpu"),
                    DEV_STATIC_RES_IRQ(0, STM32_IRQ_TIM4, DEV_IRQ_SENSE_HIGH_LEVEL, 0, 0x1),
                    );
 
+#define COM_CS_IO        35
 #define DAC_CS_IO        28
 #define FPGA_DONE_IO     1
 #define FPGA_INITB_IO    4
@@ -194,31 +199,34 @@ static void pmsre_spi_write(struct device_spi_ctrl_s *spi, unsigned int cs_id,
                             const uint8_t *data, size_t size)
 {
   struct dev_spi_ctrl_transfer_s tr = {
-    .count = size,
-    .out = data,
-    .out_width = 1,
+    .data.count = size,
+    .data.out = data,
+    .data.out_width = 1,
   };
 
-  ensure(!DEVICE_OP(&d_gpio, set_output, cs_id, cs_id, dev_gpio_mask0, dev_gpio_mask0));
+  ensure(!dev_gpio_out(&d_gpio, cs_id, 0));
   ensure(!dev_spi_wait_transfer(&d_cmd_spi, &tr));
-  ensure(!DEVICE_OP(&d_gpio, set_output, cs_id, cs_id, dev_gpio_mask1, dev_gpio_mask1));
+  ensure(!dev_gpio_out(&d_gpio, cs_id, 1));
 }
 
 void main()
 {
-  ensure(!device_get_accessor_by_path(&d_fpga_spi, NULL, "spi1", DRIVER_CLASS_SPI_CTRL));
-  ensure(!device_get_accessor_by_path(&d_cmd_spi, NULL, "spi2", DRIVER_CLASS_SPI_CTRL));
-  ensure(!device_get_accessor_by_path(&d_gpio, NULL, "gpio", DRIVER_CLASS_GPIO));
+  ensure(!device_get_accessor_by_path(&d_fpga_spi.base, NULL, "spi1", DRIVER_CLASS_SPI_CTRL));
+  ensure(!device_get_accessor_by_path(&d_cmd_spi.base, NULL, "spi2", DRIVER_CLASS_SPI_CTRL));
+  ensure(!device_get_accessor_by_path(&d_gpio.base, NULL, "gpio", DRIVER_CLASS_GPIO));
 
-  ensure(!DEVICE_OP(&d_gpio, set_mode, FPGA_DONE_IO, FPGA_DONE_IO, dev_gpio_mask1, DEV_PIN_INPUT_PULLUP));
-  ensure(!DEVICE_OP(&d_gpio, set_mode, FPGA_INITB_IO, FPGA_INITB_IO, dev_gpio_mask1, DEV_PIN_INPUT_PULLUP));
+  ensure(!dev_gpio_mode(&d_gpio, FPGA_DONE_IO, DEV_PIN_INPUT_PULLUP));
+  ensure(!dev_gpio_mode(&d_gpio, FPGA_INITB_IO, DEV_PIN_INPUT_PULLUP));
 
-  ensure(!DEVICE_OP(&d_gpio, set_mode, FPGA_PROGB_IO, FPGA_PROGB_IO, dev_gpio_mask1, DEV_PIN_PUSHPULL));
-  ensure(!DEVICE_OP(&d_gpio, set_output, FPGA_PROGB_IO, FPGA_PROGB_IO, dev_gpio_mask0, dev_gpio_mask0));
+  ensure(!dev_gpio_mode(&d_gpio, FPGA_PROGB_IO, DEV_PIN_PUSHPULL));
+  ensure(!dev_gpio_out(&d_gpio, FPGA_PROGB_IO, 0));
 
-  /* drive dac CS */
-  ensure(!DEVICE_OP(&d_gpio, set_mode, DAC_CS_IO, DAC_CS_IO, dev_gpio_mask1, DEV_PIN_PUSHPULL));
-  ensure(!DEVICE_OP(&d_gpio, set_output, DAC_CS_IO, DAC_CS_IO, dev_gpio_mask1, dev_gpio_mask1));
+  /* drive CS */
+  ensure(!dev_gpio_mode(&d_gpio, DAC_CS_IO, DEV_PIN_PUSHPULL));
+  ensure(!dev_gpio_out(&d_gpio, DAC_CS_IO, 1));
+
+  ensure(!dev_gpio_mode(&d_gpio, COM_CS_IO, DEV_PIN_PUSHPULL));
+  ensure(!dev_gpio_out(&d_gpio, COM_CS_IO, 1));
 
   struct dev_spi_ctrl_config_s cfg = {
     .ck_mode = DEV_SPI_CK_MODE_0,
@@ -235,8 +243,6 @@ void main()
   pmsre_spi_write(&d_cmd_spi, DAC_CS_IO, (const uint8_t*)"\x76\x0f\x00", 3);
 
   printk("PMSRE init done\n");
-
-  mutek_shell_start(&console_dev, "xterm");
 }
 
 enum shell_pmsre_opts_e
@@ -253,28 +259,24 @@ struct termui_optctx_pmsre_opts
 
 static TERMUI_CON_COMMAND_PROTOTYPE(shell_pmsre_fpga_load)
 {
-  uint8_t x;
-
   /* pulse prog_b low */
-  ensure(!DEVICE_OP(&d_gpio, set_output, FPGA_PROGB_IO, FPGA_PROGB_IO, dev_gpio_mask0, dev_gpio_mask0));
-  ensure(!DEVICE_OP(&d_gpio, set_output, FPGA_PROGB_IO, FPGA_PROGB_IO, dev_gpio_mask1, dev_gpio_mask1));
+  ensure(!dev_gpio_out(&d_gpio, FPGA_PROGB_IO, 0));
+  ensure(!dev_gpio_out(&d_gpio, FPGA_PROGB_IO, 1));
 
-  do {
-    DEVICE_OP(&d_gpio, get_input, FPGA_INITB_IO, FPGA_INITB_IO, &x);
-  } while (!(x & 1));
+  while (!dev_gpio_input(&d_gpio, FPGA_INITB_IO, NULL))
+    ;
 
-  printk("INITB ok, writing %u bytes\n", sizeof(fpga_stream));
+  printk("INITB ok, writing %u bytes\n", fpga_stream_size);
 
   struct dev_spi_ctrl_transfer_s tr = {
-    .count = sizeof(fpga_stream),
-    .out = fpga_stream,
-    .out_width = 1,
+    .data.count = fpga_stream_size,
+    .data.out = fpga_stream,
+    .data.out_width = 1,
   };
 
   ensure(!dev_spi_wait_transfer(&d_fpga_spi, &tr));
 
-  DEVICE_OP(&d_gpio, get_input, FPGA_DONE_IO, FPGA_DONE_IO, &x);
-  printk("DONE: %u\n", x & 1);
+  printk("DONE: %u\n", dev_gpio_input(&d_gpio, FPGA_DONE_IO, NULL));
 
   return 0;
 }
@@ -285,7 +287,7 @@ static TERMUI_CON_COMMAND_PROTOTYPE(shell_pmsre_motor)
 
   if (used & PMSRE_OPT_MAMPS)
     {
-      uint8_t id = c->axis > 2 ? 3 : c->axis;
+      uint8_t id = c->axis > 2 ? 3 : 2 - c->axis;
       /*
          drv8825 vref = amps / 2
          max5713 val = vout * 2048
