@@ -356,10 +356,13 @@ UsedLibrary="libs/EFM32.lbr"
 UsedLibrary="libs/standard_passive.lbr"
 UsedLibrary="libs/usb-header.lbr"
 UsedLibrary="libs/symbols.lbr"
+UsedLibrary="libs/motor_drivers.lbr"
+UsedLibrary="libs/dac.lbr"
+UsedLibrary="libs/opamp.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="0 0 1365 714"
+Loc="-8 -8 1357 706"
 State=1
 Number=0
 
