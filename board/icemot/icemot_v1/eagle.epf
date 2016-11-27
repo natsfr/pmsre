@@ -355,10 +355,11 @@ UsedLibrary="C:/EAGLE-7.7.0/lbr/seeed/Seeed-OPL-ic.lbr"
 UsedLibrary="libs/EFM32.lbr"
 UsedLibrary="libs/standard_passive.lbr"
 UsedLibrary="libs/usb-header.lbr"
+UsedLibrary="libs/symbols.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="-8 -8 1357 706"
+Loc="0 0 1365 714"
 State=1
 Number=0
 
