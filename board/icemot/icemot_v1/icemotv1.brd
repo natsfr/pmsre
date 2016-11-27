@@ -620,6 +620,26 @@ thin quad flat pack, square (smd-ipc)</description>
 </package>
 </packages>
 </library>
+<library name="xtals">
+<packages>
+<package name="3.2X2.5MM">
+<smd name="2" x="1.1" y="-0.85" dx="1.4" dy="1.2" layer="1"/>
+<smd name="3" x="1.1" y="0.85" dx="1.4" dy="1.2" layer="1"/>
+<smd name="4" x="-1.1" y="0.85" dx="1.4" dy="1.2" layer="1"/>
+<smd name="1" x="-1.1" y="-0.85" dx="1.4" dy="1.2" layer="1"/>
+<wire x1="-1.6" y1="-1.25" x2="-1.6" y2="1.25" width="0.1" layer="21"/>
+<wire x1="-1.6" y1="1.25" x2="1.6" y2="1.25" width="0.1" layer="21"/>
+<wire x1="1.6" y1="1.25" x2="1.6" y2="-1.25" width="0.1" layer="21"/>
+<wire x1="1.6" y1="-1.25" x2="-1.6" y2="-1.25" width="0.1" layer="21"/>
+<rectangle x1="-1.6" y1="-1.25" x2="-0.6" y2="-0.45" layer="21"/>
+<rectangle x1="-1.6" y1="0.45" x2="-0.6" y2="1.25" layer="21"/>
+<rectangle x1="0.6" y1="0.45" x2="1.6" y2="1.25" layer="21"/>
+<rectangle x1="0.6" y1="-1.25" x2="1.6" y2="-0.45" layer="21"/>
+<text x="2.25" y="0.5" size="0.8128" layer="25" font="vector" ratio="12">&gt;NAME</text>
+<text x="2.25" y="-1.25" size="0.8128" layer="25" font="vector" ratio="12">&gt;VALUE</text>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -821,7 +841,14 @@ design rules under a new name.</description>
 <element name="C8" library="standard_passive" package="R0603" value="100n" x="-41.91" y="3.81"/>
 <element name="C9" library="standard_passive" package="R0805" value="10u" x="-46.99" y="3.81"/>
 <element name="C10" library="standard_passive" package="R0603" value="100n" x="-52.07" y="3.81"/>
-<element name="U$1" library="usb-header" package="USB-M-S1" value="USB-SHIELD" x="-45.72" y="-6.35"/>
+<element name="U$1" library="usb-header" package="USB-M-S1" value="USB-SHIELD" x="87.63" y="25.4" rot="R180"/>
+<element name="C11" library="standard_passive" package="R0805" value="4.7u" x="-57.15" y="-8.89"/>
+<element name="C12" library="standard_passive" package="R0603" value="1u" x="-62.23" y="-8.89"/>
+<element name="R1" library="standard_passive" package="R0603" value="15" x="57.15" y="26.67"/>
+<element name="R2" library="standard_passive" package="R0603" value="15" x="57.15" y="27.94"/>
+<element name="Y1" library="xtals" package="3.2X2.5MM" value="48MHz" x="-59.69" y="-13.97"/>
+<element name="C13" library="standard_passive" package="R0603" value="10p" x="-67.31" y="-11.43"/>
+<element name="C14" library="standard_passive" package="R0603" value="10p" x="-72.39" y="-11.43"/>
 </elements>
 <signals>
 <signal name="VCCIO0">
@@ -870,7 +897,21 @@ design rules under a new name.</description>
 <contactref element="C8" pad="2"/>
 <contactref element="C10" pad="1"/>
 <contactref element="C9" pad="2"/>
-<wire x1="56.32" y1="50.51" x2="56.32" y2="55.51" width="0" layer="19" extent="1-1"/>
+<contactref element="U$1" pad="GND@1"/>
+<contactref element="U$1" pad="GND@2"/>
+<contactref element="U$1" pad="GND@3"/>
+<contactref element="U$1" pad="GND@4"/>
+<contactref element="U$1" pad="GND"/>
+<contactref element="C11" pad="2"/>
+<contactref element="C12" pad="1"/>
+<contactref element="C14" pad="2"/>
+<contactref element="C13" pad="2"/>
+<wire x1="84.88" y1="29.8" x2="90.38" y2="29.9" width="0" layer="19" extent="1-1"/>
+<wire x1="84.88" y1="27" x2="84.88" y2="29.8" width="0" layer="19" extent="1-1"/>
+<wire x1="84.88" y1="20.9" x2="84.88" y2="27" width="0" layer="19" extent="1-1"/>
+<wire x1="90.38" y1="20.9" x2="84.88" y2="20.9" width="0" layer="19" extent="1-1"/>
+<wire x1="56.32" y1="50.51" x2="84.88" y2="29.8" width="0" layer="19" extent="1-1"/>
+<wire x1="56.32" y1="55.51" x2="56.32" y2="50.51" width="0" layer="19" extent="1-1"/>
 <wire x1="47.97" y1="58.86" x2="56.32" y2="55.51" width="0" layer="19" extent="1-1"/>
 <wire x1="39.47" y1="58.86" x2="47.97" y2="58.86" width="0" layer="19" extent="1-1"/>
 <wire x1="35.12" y1="45.51" x2="39.47" y2="58.86" width="0" layer="19" extent="1-1"/>
@@ -891,6 +932,10 @@ design rules under a new name.</description>
 <wire x1="-41.11" y1="3.81" x2="-36.03" y2="3.81" width="0" layer="19" extent="1-1"/>
 <wire x1="-46.09" y1="3.81" x2="-41.11" y2="3.81" width="0" layer="19" extent="1-1"/>
 <wire x1="-52.87" y1="3.81" x2="-46.09" y2="3.81" width="0" layer="19" extent="1-1"/>
+<wire x1="-56.25" y1="-8.89" x2="-52.87" y2="3.81" width="0" layer="19" extent="1-1"/>
+<wire x1="-63.03" y1="-8.89" x2="-56.25" y2="-8.89" width="0" layer="19" extent="1-1"/>
+<wire x1="-66.51" y1="-11.43" x2="-63.03" y2="-8.89" width="0" layer="19" extent="1-1"/>
+<wire x1="-71.59" y1="-11.43" x2="-66.51" y2="-11.43" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="PLLGND">
 <contactref element="U1" pad="53"/>
@@ -916,9 +961,6 @@ design rules under a new name.</description>
 </signal>
 <signal name="VPP_FAST">
 <contactref element="U1" pad="109"/>
-</signal>
-<signal name="USBVREGO">
-<contactref element="U2" pad="46"/>
 </signal>
 <signal name="+3V3">
 <contactref element="U2" pad="23"/>
@@ -956,20 +998,53 @@ design rules under a new name.</description>
 <contactref element="C1" pad="1"/>
 <wire x1="-7.15" y1="3.81" x2="50.35" y2="23.88" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$2">
-<contactref element="U$1" pad="D+"/>
-<contactref element="U2" pad="48"/>
-<wire x1="-42.97" y1="-6.35" x2="50.35" y2="27.94" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="N$3">
-<contactref element="U$1" pad="D-"/>
-<contactref element="U2" pad="47"/>
-<wire x1="-42.97" y1="-5.55" x2="50.35" y2="27.38" width="0" layer="19" extent="1-1"/>
-</signal>
 <signal name="N$4">
 <contactref element="U$1" pad="VBUS"/>
 <contactref element="U2" pad="45"/>
-<wire x1="-42.97" y1="-4.75" x2="50.35" y2="26.38" width="0" layer="19" extent="1-1"/>
+<contactref element="C11" pad="1"/>
+<contactref element="U2" pad="52"/>
+<wire x1="50.35" y1="26.38" x2="84.88" y2="23.8" width="0" layer="19" extent="1-1"/>
+<wire x1="46.7" y1="30.03" x2="50.35" y2="26.38" width="0" layer="19" extent="1-1"/>
+<wire x1="-58.05" y1="-8.89" x2="46.7" y2="30.03" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$5">
+<contactref element="U2" pad="46"/>
+<contactref element="C12" pad="2"/>
+<wire x1="-61.43" y1="-8.89" x2="50.35" y2="26.88" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$2">
+<contactref element="U2" pad="47"/>
+<contactref element="R1" pad="1"/>
+<wire x1="56.35" y1="26.67" x2="50.35" y2="27.38" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$3">
+<contactref element="R1" pad="2"/>
+<contactref element="U$1" pad="D-"/>
+<wire x1="84.88" y1="24.6" x2="57.95" y2="26.67" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$6">
+<contactref element="U$1" pad="D+"/>
+<contactref element="R2" pad="2"/>
+<wire x1="84.88" y1="25.4" x2="57.95" y2="27.94" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$7">
+<contactref element="R2" pad="1"/>
+<contactref element="U2" pad="48"/>
+<wire x1="50.35" y1="27.94" x2="56.35" y2="27.94" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$8">
+<contactref element="Y1" pad="3"/>
+<contactref element="U2" pad="25"/>
+<contactref element="C13" pad="1"/>
+<wire x1="-58.59" y1="-13.12" x2="-68.11" y2="-11.43" width="0" layer="19" extent="1-1"/>
+<wire x1="44.7" y1="18.23" x2="-58.59" y2="-13.12" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$9">
+<contactref element="Y1" pad="1"/>
+<contactref element="U2" pad="24"/>
+<contactref element="C14" pad="1"/>
+<wire x1="-60.79" y1="-14.82" x2="-73.19" y2="-11.43" width="0" layer="19" extent="1-1"/>
+<wire x1="44.2" y1="18.23" x2="-60.79" y2="-14.82" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>
