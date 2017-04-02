@@ -251,8 +251,8 @@
 </connects>
 <technologies>
 <technology name="">
-<attribute name="MPN" value="LM2576HVS-5.0/NOPB" constant="no"/>
-<attribute name="VALUE" value="LM2576HVS-5.0/NOPB-TO263-5" constant="no"/>
+<attribute name="MPN" value="LM2576HVS-12.0/NOPB" constant="no"/>
+<attribute name="VALUE" value="LM2576HVS-12.0/NOPB-TO263-5" constant="no"/>
 </technology>
 </technologies>
 </device>
